@@ -15,7 +15,18 @@
 		2860E32E111B888700E27156 /* AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E32C111B888700E27156 /* AppDelegate_iPad.m */; };
 		2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E32D111B888700E27156 /* MainWindow_iPad.xib */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D161665B12FDD5AC006286E4 /* ModularUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161665A12FDD5AC006286E4 /* ModularUnit.m */; };
+		D16166CD12FDF73A006286E4 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D16166CC12FDF73A006286E4 /* main_background.png */; };
+		D161670112FE06FA006286E4 /* ModularConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D16166FF12FE06FA006286E4 /* ModularConnection.m */; };
+		D161676A12FE1347006286E4 /* SineWaveGeneratorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161676912FE1347006286E4 /* SineWaveGeneratorUnit.m */; };
+		D16167A912FE204B006286E4 /* CommonAudioOps.c in Sources */ = {isa = PBXBuildFile; fileRef = D16167A812FE204B006286E4 /* CommonAudioOps.c */; };
+		D1616A0012FF5DE8006286E4 /* NoiseGeneratorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D16169FF12FF5DE8006286E4 /* NoiseGeneratorUnit.m */; };
+		D1616A2112FF6639006286E4 /* HeadUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616A2012FF6639006286E4 /* HeadUnit.m */; };
+		D1616A3B12FF6764006286E4 /* GainUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616A3A12FF6764006286E4 /* GainUnit.m */; };
+		D1616AD312FF7741006286E4 /* UIModularUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */; };
+		D1616AED12FF7B34006286E4 /* UIViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */; };
 		D1790B0F12F48EC2001E1DCE /* Mod1AUGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = D1790B0E12F48EC2001E1DCE /* Mod1AUGraph.m */; };
+		D1790B4C12F5FF3B001E1DCE /* SineWaveGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = D1790B4B12F5FF3B001E1DCE /* SineWaveGenerator.c */; };
 		D1D5416012EFF1DF008235F3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D5415F12EFF1DF008235F3 /* RootViewController.m */; };
 		D1D5417112EFF61A008235F3 /* RootAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D5417012EFF61A008235F3 /* RootAudioController.m */; };
 		D1D5417B12EFF6E6008235F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D5417A12EFF6E6008235F3 /* AVFoundation.framework */; };
@@ -36,8 +47,29 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Shared/main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Mod_1_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mod_1_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Mod_1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Mod_1-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D161665912FDD5AC006286E4 /* ModularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularUnit.h; sourceTree = "<group>"; };
+		D161665A12FDD5AC006286E4 /* ModularUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularUnit.m; sourceTree = "<group>"; };
+		D16166CC12FDF73A006286E4 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
+		D16166FF12FE06FA006286E4 /* ModularConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularConnection.m; sourceTree = "<group>"; };
+		D161670012FE06FA006286E4 /* ModularConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularConnection.h; sourceTree = "<group>"; };
+		D161676812FE1347006286E4 /* SineWaveGeneratorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveGeneratorUnit.h; sourceTree = "<group>"; };
+		D161676912FE1347006286E4 /* SineWaveGeneratorUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineWaveGeneratorUnit.m; sourceTree = "<group>"; };
+		D16167A512FE1E7F006286E4 /* CommonAudioOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonAudioOps.h; sourceTree = "<group>"; };
+		D16167A812FE204B006286E4 /* CommonAudioOps.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CommonAudioOps.c; sourceTree = "<group>"; };
+		D16169FE12FF5DE8006286E4 /* NoiseGeneratorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseGeneratorUnit.h; sourceTree = "<group>"; };
+		D16169FF12FF5DE8006286E4 /* NoiseGeneratorUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoiseGeneratorUnit.m; sourceTree = "<group>"; };
+		D1616A1F12FF6639006286E4 /* HeadUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadUnit.h; sourceTree = "<group>"; };
+		D1616A2012FF6639006286E4 /* HeadUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadUnit.m; sourceTree = "<group>"; };
+		D1616A3912FF6764006286E4 /* GainUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GainUnit.h; sourceTree = "<group>"; };
+		D1616A3A12FF6764006286E4 /* GainUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GainUnit.m; sourceTree = "<group>"; };
+		D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularUnitViewController.h; sourceTree = "<group>"; };
+		D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularUnitViewController.m; sourceTree = "<group>"; };
+		D1616AEB12FF7B34006286E4 /* UIViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Layout.h"; sourceTree = "<group>"; };
+		D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Layout.m"; sourceTree = "<group>"; };
 		D1790B0D12F48EC2001E1DCE /* Mod1AUGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mod1AUGraph.h; sourceTree = "<group>"; };
 		D1790B0E12F48EC2001E1DCE /* Mod1AUGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mod1AUGraph.m; sourceTree = "<group>"; };
+		D1790B4A12F5FF3B001E1DCE /* SineWaveGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveGenerator.h; sourceTree = "<group>"; };
+		D1790B4B12F5FF3B001E1DCE /* SineWaveGenerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SineWaveGenerator.c; sourceTree = "<group>"; };
 		D1D5415E12EFF1DF008235F3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		D1D5415F12EFF1DF008235F3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		D1D5416F12EFF61A008235F3 /* RootAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootAudioController.h; sourceTree = "<group>"; };
@@ -98,7 +130,9 @@
 				D1D5415F12EFF1DF008235F3 /* RootViewController.m */,
 				D1D5416F12EFF61A008235F3 /* RootAudioController.h */,
 				D1D5417012EFF61A008235F3 /* RootAudioController.m */,
+				D161666112FDD8DC006286E4 /* View */,
 				D1D5416D12EFF5FB008235F3 /* Audio */,
+				D1616AEA12FF7AE9006286E4 /* Categories */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -110,6 +144,7 @@
 				2860E324111B887F00E27156 /* iPhone */,
 				28EEBF621118D79A00187D67 /* Shared */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				D16166CB12FDF726006286E4 /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -137,11 +172,85 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D161666112FDD8DC006286E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */,
+				D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D16166A012FDE210006286E4 /* UGens */ = {
+			isa = PBXGroup;
+			children = (
+				D1790B4A12F5FF3B001E1DCE /* SineWaveGenerator.h */,
+				D1790B4B12F5FF3B001E1DCE /* SineWaveGenerator.c */,
+			);
+			name = UGens;
+			sourceTree = "<group>";
+		};
+		D16166CB12FDF726006286E4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D16166CC12FDF73A006286E4 /* main_background.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D161676B12FE179C006286E4 /* GeneratorUnits */ = {
+			isa = PBXGroup;
+			children = (
+				D161676812FE1347006286E4 /* SineWaveGeneratorUnit.h */,
+				D161676912FE1347006286E4 /* SineWaveGeneratorUnit.m */,
+				D16169FE12FF5DE8006286E4 /* NoiseGeneratorUnit.h */,
+				D16169FF12FF5DE8006286E4 /* NoiseGeneratorUnit.m */,
+			);
+			name = GeneratorUnits;
+			sourceTree = "<group>";
+		};
+		D1616A3812FF6753006286E4 /* FilterUnits */ = {
+			isa = PBXGroup;
+			children = (
+				D1616A3912FF6764006286E4 /* GainUnit.h */,
+				D1616A3A12FF6764006286E4 /* GainUnit.m */,
+			);
+			name = FilterUnits;
+			sourceTree = "<group>";
+		};
+		D1616AEA12FF7AE9006286E4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D1616AEB12FF7B34006286E4 /* UIViewController+Layout.h */,
+				D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		D1790CED12F64215001E1DCE /* Modulars */ = {
+			isa = PBXGroup;
+			children = (
+				D1616A3812FF6753006286E4 /* FilterUnits */,
+				D161676B12FE179C006286E4 /* GeneratorUnits */,
+				D1616A1F12FF6639006286E4 /* HeadUnit.h */,
+				D1616A2012FF6639006286E4 /* HeadUnit.m */,
+				D161665912FDD5AC006286E4 /* ModularUnit.h */,
+				D161665A12FDD5AC006286E4 /* ModularUnit.m */,
+				D161670012FE06FA006286E4 /* ModularConnection.h */,
+				D16166FF12FE06FA006286E4 /* ModularConnection.m */,
+			);
+			name = Modulars;
+			sourceTree = "<group>";
+		};
 		D1D5416D12EFF5FB008235F3 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				D16166A012FDE210006286E4 /* UGens */,
+				D1790CED12F64215001E1DCE /* Modulars */,
 				D1790B0D12F48EC2001E1DCE /* Mod1AUGraph.h */,
 				D1790B0E12F48EC2001E1DCE /* Mod1AUGraph.m */,
+				D16167A512FE1E7F006286E4 /* CommonAudioOps.h */,
+				D16167A812FE204B006286E4 /* CommonAudioOps.c */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -171,6 +280,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Electrunique;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mod-1" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -197,6 +309,7 @@
 			files = (
 				2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */,
 				2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */,
+				D16166CD12FDF73A006286E4 /* main_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +326,16 @@
 				D1D5416012EFF1DF008235F3 /* RootViewController.m in Sources */,
 				D1D5417112EFF61A008235F3 /* RootAudioController.m in Sources */,
 				D1790B0F12F48EC2001E1DCE /* Mod1AUGraph.m in Sources */,
+				D1790B4C12F5FF3B001E1DCE /* SineWaveGenerator.c in Sources */,
+				D161665B12FDD5AC006286E4 /* ModularUnit.m in Sources */,
+				D161670112FE06FA006286E4 /* ModularConnection.m in Sources */,
+				D161676A12FE1347006286E4 /* SineWaveGeneratorUnit.m in Sources */,
+				D16167A912FE204B006286E4 /* CommonAudioOps.c in Sources */,
+				D1616A0012FF5DE8006286E4 /* NoiseGeneratorUnit.m in Sources */,
+				D1616A2112FF6639006286E4 /* HeadUnit.m in Sources */,
+				D1616A3B12FF6764006286E4 /* GainUnit.m in Sources */,
+				D1616AD312FF7741006286E4 /* UIModularUnitViewController.m in Sources */,
+				D1616AED12FF7B34006286E4 /* UIViewController+Layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 //  Mod-1
 //
 //  Created by Schell Scivally on 1/25/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Electrunique. All rights reserved.
 //
 
 #import "AppDelegate_iPhone.h"
@@ -22,6 +22,7 @@
     // Override point for customization after application launch.
 	RootViewController* rootViewController = [[[RootViewController alloc] init] autorelease];
     [self.window setRootViewController:rootViewController];
+	[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
     [self.window makeKeyAndVisible];
     
     return YES;

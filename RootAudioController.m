@@ -3,7 +3,7 @@
 //  Mod-1
 //
 //  Created by Schell Scivally on 1/25/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Electrunique. All rights reserved.
 //
 
 #import "RootAudioController.h"
@@ -14,35 +14,12 @@
 #pragma mark -
 #pragma mark LifeCycle
 
-- (int)check1 {
-	NSLog(@"%s",__FUNCTION__);
-	return 0;
-}
-
-- (int)check2 {
-	NSLog(@"%s",__FUNCTION__);
-	return false;
-}
-
-- (int)check3 {
-	NSLog(@"%s",__FUNCTION__);
-	return NO;
-}
-
-
 - (id)init {
 	self = [super init];
 	_session = nil;
+	_graph = nil;
 	[self setupAudioSession];
-	//experiment
-	NSLog(@"%s",__FUNCTION__);
-	if ((BOOL)[self check1] ||
-		(BOOL)[self check2] ||
-		(BOOL)[self check3]) {
-		NSLog(@"	errored!");
-	} else {
-		NSLog(@"	no error");
-	}
+	[self activateAudioSession];
 	return self;
 }
 
@@ -90,7 +67,34 @@
 
 - (void)endInterruption {
 	NSLog(@"%s",__FUNCTION__);
-	[self activateAudioSession];
+	//[self activateAudioSession];
+}
+
+#pragma mark -
+#pragma mark AudioUnitGraph
+
+- (Mod1AUGraph*)mainGraph {
+	if (_graph == nil) {
+		_graph = [[Mod1AUGraph alloc] init];
+	}
+	return _graph;
+}
+
+- (void)startGraph {
+	NSLog(@"%s",__FUNCTION__);
+	NSError* error = nil;
+	[[self mainGraph] play:&error];
+	if (error != nil) {
+		NSLog(@"%s%@ %@",__FUNCTION__,error,[error userInfo]);
+	}
+}
+
+- (void)stopGraph {
+	NSError* error = nil;
+	[[self mainGraph] stop:&error];
+	if (error != nil) {
+		NSLog(@"%s%@ %@",__FUNCTION__,error,[error userInfo]);
+	}
 }
 
 @end

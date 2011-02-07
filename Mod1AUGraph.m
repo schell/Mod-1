@@ -3,10 +3,14 @@
 //  Mod-1
 //
 //  Created by Schell Scivally on 1/29/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Electrunique. All rights reserved.
 //
 
 #import "Mod1AUGraph.h"
+#import "ModularConnection.h"
+#import "NoiseGeneratorUnit.h"
+#import "GainUnit.h"
+#import "CommonAudioOps.h"
 
 #define FAIL_ON_ERR(_X_) if ((status = (_X_)) != noErr) { goto failed; }
 
@@ -19,20 +23,39 @@
 - (void)setupDataFormat;
 @end
 
-static OSStatus MyRenderer(void*						inRefCon,
+static OSStatus render(void*						inRefCon,
 						   AudioUnitRenderActionFlags*	ioActionFlags,
 						   const AudioTimeStamp*		inTimeStamp,
 						   UInt32						inBusNumber,
 						   UInt32						inNumberFrames,
 						   AudioBufferList*				ioData);
-static void FillFrame(Mod1AUGraph* self, int16_t* sample);
 
 @implementation Mod1AUGraph
+@synthesize headUnit;
 
 #pragma mark -
 #pragma mark Lifecycle
 
+- (id)init {
+	NSLog(@"%s",__FUNCTION__);
+	self = [super init];
+	
+	headUnit = [[HeadUnit alloc] init];
+	_gainUnit = [[GainUnit alloc] init];
+	_noiseUnit = [[NoiseGeneratorUnit alloc] init];
+	headUnit.input.inputUnit = _gainUnit;
+	_gainUnit.input.inputUnit = _noiseUnit;
+	
+	[self setupDataFormat];
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Play/Stop
+
 - (BOOL)play:(NSError**)error {
+	NSLog(@"%s",__FUNCTION__);
 	NSAssert(_graph == NULL, @"AUGraph is already started");
 	
 	OSStatus status;
@@ -42,11 +65,10 @@ static void FillFrame(Mod1AUGraph* self, int16_t* sample);
 	FAIL_ON_ERR([self addConverterNode]);
 	FAIL_ON_ERR(AUGraphConnectNodeInput(_graph, _converterNode, 0, _outputNode, 0));
 	FAIL_ON_ERR(AUGraphOpen(_graph));
-	[self setupDataFormat];
 	FAIL_ON_ERR([self setDataFormatOfConverterAudioUnit]);
 	FAIL_ON_ERR([self setMaximumFramesPerSlice]);
 	FAIL_ON_ERR([self setRenderCallbackOfConverterNode]);
-	//SineWaveGeneratorInitWithFrequency(&_sineWaveGenerator, 440.0);
+	FAIL_ON_ERR(AUGraphInitialize(_graph));
 	FAIL_ON_ERR(AUGraphStart(_graph));
 	
 	return YES;
@@ -64,6 +86,7 @@ failed:
 }
 
 - (BOOL)stop:(NSError **)error {
+	NSLog(@"%s",__FUNCTION__);
 	NSAssert(_graph != NULL, @"AUGraph is not started");
 	
 	OSStatus status;
@@ -87,7 +110,83 @@ failed:
 #pragma mark Configuration
 
 - (OSStatus)addOutputNode {
+	AudioComponentDescription description = {0};
+	description.componentType = kAudioUnitType_Output;
+	description.componentSubType = kAudioUnitSubType_RemoteIO;
+	description.componentManufacturer = kAudioUnitManufacturer_Apple;
+	return AUGraphAddNode(_graph, &description, &_outputNode);
+}
+
+- (OSStatus)addConverterNode {
+	AudioComponentDescription description = {0};
+	description.componentType = kAudioUnitType_FormatConverter;
+	description.componentSubType = kAudioUnitSubType_AUConverter;
+	description.componentManufacturer = kAudioUnitManufacturer_Apple;
+	return AUGraphAddNode(_graph, &description, &_converterNode);
+}
+
+- (void)setupDataFormat {
+	_dataFormat = DefaultAudioStreamBasicDescription();
+}
+
+- (OSStatus)setDataFormatOfConverterAudioUnit {
+	AudioUnit converterAudioUnit;
+	OSStatus status;
+	status = AUGraphNodeInfo(_graph, _converterNode, NULL, &converterAudioUnit);
+	if (status != noErr) {
+		return status;
+	}
+	status = AudioUnitSetProperty(converterAudioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &_dataFormat, sizeof(_dataFormat));
+	return status;
+}
+
+- (OSStatus)setMaximumFramesPerSlice {
+	/*
+     * See Technical Q&A QA1606 Audio Unit Processing Graph -
+     *   Ensuring audio playback continues when screen is locked
+     *
+     * http://developer.apple.com/iphone/library/qa/qa2009/qa1606.html
+     *
+     * Need to set kAudioUnitProperty_MaximumFramesPerSlice to 4096 on all
+     * non-output audio units.  In this case, that's only the converter unit.
+     */
+	AudioUnit audioUnit;
+	OSStatus status;
+	status = AUGraphNodeInfo(_graph, _converterNode, NULL, &audioUnit);
+	if (status != noErr) {
+		return status;
+	}
+	AudioUnitSetProperty(audioUnit, kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &(UInt32){4096}, sizeof(UInt32));
+	return status;
+}
+
+- (OSStatus)setRenderCallbackOfConverterNode {
+	AURenderCallbackStruct callback = {0};
+	callback.inputProc = render;
+	callback.inputProcRefCon = self;
+	return AUGraphSetNodeInputCallback(_graph, _converterNode, 0, &callback);
+}
+
+#pragma mark -
+#pragma mark Rendering
+
+static OSStatus render(void*						inRefCon,
+					   AudioUnitRenderActionFlags*	ioActionFlags,
+					   const AudioTimeStamp*		inTimeStamp,
+					   UInt32						inBusNumber,
+					   UInt32						inNumberFrames,
+					   AudioBufferList*				ioData) {
+	NSAutoreleasePool* threadPool = [[NSAutoreleasePool alloc] init];
+	Mod1AUGraph* self = inRefCon;
 	
+	[self->headUnit output:inNumberFrames intoBufferList:ioData]; 
+
+	[threadPool drain];
+	return noErr;
+}
+
+- (GainUnit*)gainUnit {
+	return _gainUnit;
 }
 
 @end
