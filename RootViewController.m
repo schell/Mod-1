@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "UIViewController+Layout.h"
 
 @implementation RootViewController
 
@@ -22,13 +23,6 @@
 - (void)dealloc {
     [super dealloc];
 }
-
-
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -62,13 +56,21 @@
 		[self.view addSubview:_label];
 		_headUnitViewController = [[UIModularUnitViewController alloc] init];
 		_headUnitViewController.unit = [_rootAudioController mainGraph].headUnit;
+		[_headUnitViewController createView];
 		[self.view addSubview:_headUnitViewController.view];
+		CGRect viewFrame = [self viewFrameWithOrientation:self.interfaceOrientation];
+		_headUnitViewController.view.center = CGPointMake(viewFrame.size.width/2, viewFrame.size.width/3);
 	}
+	[_rootAudioController mainGraph].headUnit.defaultGain = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 	NSLog(@"%s",__FUNCTION__);
 	[_rootAudioController startGraph];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	return YES;
 }
 
 #pragma mark -

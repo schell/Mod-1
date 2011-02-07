@@ -271,6 +271,8 @@
 								<string>D1D5416D12EFF5FB008235F3</string>
 								<string>D1790CED12F64215001E1DCE</string>
 								<string>D1616A3812FF6753006286E4</string>
+								<string>D161676B12FE179C006286E4</string>
+								<string>D1616AEA12FF7AE9006286E4</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
@@ -303,7 +305,7 @@
 							<real>259</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>483 108 1314 1006 0 0 1920 1178 </string>
+						<string>473 109 1314 1006 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -333,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D1616B1112FF7C9C006286E4</string>
+										<string>D1616BFE12FFD4BD006286E4</string>
 										<key>history</key>
 										<array>
 											<string>D1D541D112EFFA74008235F3</string>
@@ -348,7 +350,6 @@
 											<string>D161683B12FF341B006286E4</string>
 											<string>D161688212FF4487006286E4</string>
 											<string>D161696312FF544D006286E4</string>
-											<string>D1616A0D12FF5F42006286E4</string>
 											<string>D1616A2A12FF66A7006286E4</string>
 											<string>D1616A2B12FF66A7006286E4</string>
 											<string>D1616A6212FF6D75006286E4</string>
@@ -357,23 +358,24 @@
 											<string>D1616A9012FF7066006286E4</string>
 											<string>D1616A9112FF7066006286E4</string>
 											<string>D1616A9212FF7066006286E4</string>
-											<string>D1616AF812FF7C57006286E4</string>
 											<string>D1616AF912FF7C57006286E4</string>
 											<string>D1616AFA12FF7C57006286E4</string>
 											<string>D1616AFB12FF7C57006286E4</string>
 											<string>D1616AFC12FF7C57006286E4</string>
 											<string>D1616AFD12FF7C57006286E4</string>
-											<string>D1616AFE12FF7C57006286E4</string>
-											<string>D1616AFF12FF7C57006286E4</string>
-											<string>D1616B0012FF7C57006286E4</string>
 											<string>D1616B0112FF7C57006286E4</string>
 											<string>D1616B0212FF7C57006286E4</string>
 											<string>D1616B0312FF7C57006286E4</string>
-											<string>D1616B0512FF7C57006286E4</string>
 											<string>D1616B0612FF7C57006286E4</string>
-											<string>D1616B0712FF7C57006286E4</string>
-											<string>D1616B0F12FF7C9C006286E4</string>
-											<string>D1616B1012FF7C9C006286E4</string>
+											<string>D1616B7012FF8F33006286E4</string>
+											<string>D1616B7212FF8F33006286E4</string>
+											<string>D1616BB812FFB0B6006286E4</string>
+											<string>D1616BC112FFB11B006286E4</string>
+											<string>D1616BF012FFB70E006286E4</string>
+											<string>D1616BF112FFB70E006286E4</string>
+											<string>D1616BF212FFB70E006286E4</string>
+											<string>D1616BF312FFB70E006286E4</string>
+											<string>D1616BF412FFB70E006286E4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -387,7 +389,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1033, 918}}</string>
 								<key>RubberWindowFrame</key>
-								<string>483 108 1314 1006 0 0 1920 1178 </string>
+								<string>473 109 1314 1006 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -407,7 +409,7 @@
 								<key>Frame</key>
 								<string>{{0, 923}, {1033, 42}}</string>
 								<key>RubberWindowFrame</key>
-								<string>483 108 1314 1006 0 0 1920 1178 </string>
+								<string>473 109 1314 1006 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -579,7 +581,7 @@
 		<string>/Users/schellscivally/Code/obj-c/Mod-1/Mod-1.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>483 108 1314 1006 0 0 1920 1178 </string>
+	<string>473 109 1314 1006 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -602,7 +604,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>UIModularUnitViewController.h</string>
+								<string>UIModularUnitViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

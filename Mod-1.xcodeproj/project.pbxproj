@@ -25,6 +25,7 @@
 		D1616A3B12FF6764006286E4 /* GainUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616A3A12FF6764006286E4 /* GainUnit.m */; };
 		D1616AD312FF7741006286E4 /* UIModularUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */; };
 		D1616AED12FF7B34006286E4 /* UIViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */; };
+		D1616B3112FF8C50006286E4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1616B3012FF8C50006286E4 /* QuartzCore.framework */; };
 		D1790B0F12F48EC2001E1DCE /* Mod1AUGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = D1790B0E12F48EC2001E1DCE /* Mod1AUGraph.m */; };
 		D1790B4C12F5FF3B001E1DCE /* SineWaveGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = D1790B4B12F5FF3B001E1DCE /* SineWaveGenerator.c */; };
 		D1D5416012EFF1DF008235F3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D5415F12EFF1DF008235F3 /* RootViewController.m */; };
@@ -66,6 +67,7 @@
 		D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularUnitViewController.m; sourceTree = "<group>"; };
 		D1616AEB12FF7B34006286E4 /* UIViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Layout.h"; sourceTree = "<group>"; };
 		D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Layout.m"; sourceTree = "<group>"; };
+		D1616B3012FF8C50006286E4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D1790B0D12F48EC2001E1DCE /* Mod1AUGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mod1AUGraph.h; sourceTree = "<group>"; };
 		D1790B0E12F48EC2001E1DCE /* Mod1AUGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mod1AUGraph.m; sourceTree = "<group>"; };
 		D1790B4A12F5FF3B001E1DCE /* SineWaveGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveGenerator.h; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				D1D5417B12EFF6E6008235F3 /* AVFoundation.framework in Frameworks */,
 				D1D541AD12EFFA3E008235F3 /* AudioToolbox.framework in Frameworks */,
+				D1616B3112FF8C50006286E4 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +171,7 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				D1D5417A12EFF6E6008235F3 /* AVFoundation.framework */,
 				D1D541AC12EFFA3E008235F3 /* AudioToolbox.framework */,
+				D1616B3012FF8C50006286E4 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
