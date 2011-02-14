@@ -19,10 +19,12 @@ typedef enum {
 @interface ModularConnection : NSObject {
 	ModularConnectionType _type;
 	NSString* _name;
+	NSString* description;
 }
 - (id)initWithType:(ModularConnectionType)cType andName:(NSString*)cName;
 - (ModularConnectionType)type;
 - (NSString*)name;
+@property (readwrite,retain) NSString* description;
 @property (readwrite,retain) ModularUnit* inputUnit;
 @property (readwrite,retain) ModularUnit* outputUnit;
 @end

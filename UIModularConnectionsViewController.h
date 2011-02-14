@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface UIModularConnectionsViewController : UIViewController {
-	UIView* _header;
+	UIView* _headerView;
+	NSMutableArray* _inputViews;
+	NSMutableArray* _outputViews;
+	NSMutableArray* _inputConnections;
+	NSMutableArray* _outputConnections;
 }
 + (UIView*)sharedWireDisplayView;
+- (UIColor*)connectionsColor;
+- (UIView*)inputViewAtIndex:(UInt32)index;
+- (UIView*)outputViewAtIndex:(UInt32)index;
 - (void)createView;
 @property (readwrite,retain) NSArray* connections;
 @end

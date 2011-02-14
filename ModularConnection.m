@@ -10,7 +10,7 @@
 #import "ModularUnit.h"
 
 @implementation ModularConnection
-@synthesize inputUnit,outputUnit;
+@synthesize description,inputUnit,outputUnit;
 
 #pragma mark -
 #pragma mark Lifecycle
@@ -18,7 +18,8 @@
 - (id)init {
 	self = [super init];
 	_type = ModularConnectionTypeNone;
-	_name = @"defaultModularConnection";
+	_name = @"Unconfigured Connection";
+	description = @"This is an unconfigured connection.";
 	self.inputUnit = nil;
 	self.outputUnit = nil;
 	return self;
@@ -28,6 +29,9 @@
 	self = [self init];
 	_type = cType;
 	_name = [cName retain];
+	description = [NSString stringWithFormat:@"This is a configured %@ connection.",
+				   _type==ModularConnectionTypeInput?@"input":
+				   _type==ModularConnectionTypeOutput?@"output":@"dead end"];
 	return self;
 }
 
