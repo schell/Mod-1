@@ -11,8 +11,6 @@
 #import "ModularConnection.h"
 #import "CommonAudioOps.h"
 
-@interface GainUnit : ModularUnit {
-	SAMPLE_TYPE defaultGain;
-}
-@property (readwrite) SAMPLE_TYPE defaultGain;
+@interface GainUnit : ModularUnit {}
+@property (readwrite) CGFloat defaultGain;
 @end

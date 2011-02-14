@@ -12,16 +12,14 @@
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "SampleBuffer.h"
 
 @class ModularConnection;
 
-@interface ModularUnit : NSObject {
-	AudioStreamBasicDescription dataFormat;
-}
+@interface ModularUnit : NSObject {}
 - (BOOL)initializeConnections;
-- (BOOL)output:(NSUInteger)aNumberOfFrames intoBufferList:(AudioBufferList*)outputData;
+- (BOOL)fillBuffer:(SampleBuffer*)buffer;
 - (NSArray*)connections;
-@property (readwrite) AudioStreamBasicDescription dataFormat;
 @property (readwrite,retain) ModularConnection* input;
 @property (readwrite,retain) ModularConnection* output;
 @end

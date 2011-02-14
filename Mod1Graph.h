@@ -13,10 +13,9 @@
 #import "GainUnit.h"
 #import "NoiseGeneratorUnit.h"
 
-@interface Mod1AUGraph : NSObject {
+@interface Mod1Graph : NSObject {
 	AUGraph _graph;
 	AUNode _outputNode;
-	AUNode _converterNode;
 	AudioStreamBasicDescription _dataFormat;
 	NoiseGeneratorUnit* _noiseUnit;
 	GainUnit* _gainUnit;

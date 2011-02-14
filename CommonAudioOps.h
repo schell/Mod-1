@@ -12,15 +12,12 @@
 #ifndef __COMMON_AUDIO_OPS__
 #define __COMMON_AUDIO_OPS__
 
+#import <Foundation/Foundation.h>
 #include <AudioToolbox/AudioToolbox.h>
 
-#define SAMPLE_TYPE int16_t
-#define SAMPLE_MAX INT16_MAX
+#pragma mark -
+#pragma mark Working with samples
 
-AudioBufferList* AllocateABL(UInt32 channelsPerFrame, UInt32 bytesPerFrame, bool interleaved, UInt32 capacityFrames);
-
-AudioStreamBasicDescription DefaultAudioStreamBasicDescription();
-
-void GenerateSilenceInBufferList(AudioStreamBasicDescription dataFormat, UInt32 aNumberOfFrames, AudioBufferList* outputData);
+CGFloat scale_unit2float(AudioUnitSampleType sample);
 
 #endif

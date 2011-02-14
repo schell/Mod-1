@@ -12,7 +12,7 @@
 #import "CommonAudioOps.h"
 
 @implementation ModularUnit
-@synthesize dataFormat,input,output;
+@synthesize input,output;
 
 #pragma mark -
 #pragma mark Lifecycle
@@ -20,8 +20,6 @@
 - (id)init {
 	NSLog(@"%s",__FUNCTION__);
 	self = [super init];
-	// setup default data format
-	dataFormat = DefaultAudioStreamBasicDescription();
 	// setup input and output
 	if (![self initializeConnections]) {
 		[NSException raise:@"could not initialize connections" format:@"unknown error"];
@@ -34,6 +32,9 @@
 	self.output = nil;
 	[super dealloc];
 }
+
+#pragma mark -
+#pragma mark Data Format
 
 #pragma mark -
 #pragma mark Connections
@@ -54,19 +55,21 @@
 #pragma mark -
 #pragma mark Rendering
 
-- (BOOL)output:(NSUInteger)aNumberOfFrames intoBufferList:(AudioBufferList*)outputData {
+- (BOOL)fillBuffer:(SampleBuffer*)buffer {
 	// default behaviour is to passthrough if input available, else render silence...
 
 	if (self.input.inputUnit != nil) {
 		// pass through
-		[self.input.inputUnit output:aNumberOfFrames intoBufferList:outputData];
+		[self.input.inputUnit fillBuffer:buffer];
 	} else {
 		// silence
-		GenerateSilenceInBufferList(self.dataFormat, aNumberOfFrames, outputData);
+		for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+			buffer.leftChannel[i] = 0;
+			if (buffer.isStereo) {
+				buffer.rightChannel[i] = 0;
+			}
+		}
 	}
-	
-	outputData->mBuffers[0].mDataByteSize = aNumberOfFrames*self.dataFormat.mBytesPerFrame;
-	
 	return YES;
 }
 @end

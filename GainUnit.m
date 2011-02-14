@@ -16,7 +16,8 @@
 
 - (id)init {
 	self = [super init];
-	defaultGain = SAMPLE_MAX/2;
+	self.defaultGain = 0.5;
+	NSLog(@"%s %f",__FUNCTION__,scale_unit2float(defaultGain));
 	return self;
 }
 
@@ -25,10 +26,7 @@
 
 - (BOOL)initializeConnections {
 	NSLog(@"%s",__FUNCTION__);
-	self.input = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"input"];
-	self.input.outputUnit = self;
-	self.output = [[ModularConnection alloc] initWithType:ModularConnectionTypeOutput andName:@"output"];
-	self.output.inputUnit = self;
+	[super initializeConnections];
 	return YES;
 }
 
@@ -39,30 +37,24 @@
 #pragma mark -
 #pragma mark Render
 
-- (BOOL)output:(NSUInteger)aNumberOfFrames intoBufferList:(AudioBufferList*)outputData {
+- (BOOL)fillBuffer:(SampleBuffer*)buffer {
 	// default behaviour is to passthrough if input available, else render silence...
-	SAMPLE_TYPE* outputSample = outputData->mBuffers[0].mData;
-	UInt32 channelsPerFrame = self.dataFormat.mChannelsPerFrame;
-	
 	if (self.input.inputUnit != nil) {
-		AudioBufferList* inputBuffer = AllocateABL(channelsPerFrame, self.dataFormat.mBytesPerFrame, true, aNumberOfFrames);
-		SAMPLE_TYPE* inputSample = inputBuffer->mBuffers[0].mData;
-		
-		[self.input.inputUnit output:aNumberOfFrames intoBufferList:inputBuffer];
-		
-		for (UInt32 i = 0; i < aNumberOfFrames; i++) {
-			outputSample[0] = inputSample[0] * defaultGain/SAMPLE_MAX;
-			outputSample[1] = inputSample[1] * defaultGain/SAMPLE_MAX;
-			outputSample += channelsPerFrame;
-			inputSample += channelsPerFrame;
+		[self.input.inputUnit fillBuffer:buffer];
+		for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+			buffer.leftChannel[i] *= self.defaultGain;
+			if (buffer.isStereo) {
+				buffer.rightChannel[i] *= self.defaultGain;
+			}
 		}
-		
-		free(inputBuffer);
 	} else {
-		GenerateSilenceInBufferList(self.dataFormat, aNumberOfFrames, outputData);
+		for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+			buffer.leftChannel[i] = 0;
+			if (buffer.isStereo) {
+				buffer.rightChannel[i] = 0;
+			}
+		}
 	}
-	
-	outputData->mBuffers[0].mDataByteSize = aNumberOfFrames*self.dataFormat.mBytesPerFrame;
 	
 	return YES;
 }

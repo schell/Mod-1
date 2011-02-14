@@ -8,18 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "ModularUnit.h"
+#import "UIModularConnectionsTableViewController.h"
+
+typedef enum {
+	UIViewStateAtRest,
+	UIViewStateDragging
+} UIViewState;
 
 @interface UIModularUnitViewController : UIViewController {
 	ModularUnit* unit;
-	UIView* _topBar;
-	UIView* _connectionsView;
+	UIView* _icon;
 	UIView* _backgroundView;
-	UITableViewController* _inputsController;
-	UITableViewController* _outputsController;
-	NSMutableArray* _inputConnections;
-	NSMutableArray* _outputConnections;
+	UIView* _windowBarView;
+	UIModularConnectionsTableViewController* _connectionsTableController;
+	BOOL _dragging;
+	CGPoint _draggingOffset;
 }
 - (CGFloat)oneThirdPortraitWidth;
 - (void)createView;
+- (UIImage*)icon;
+- (void)setShadowForState:(UIViewState)state;
 @property (readwrite,retain) ModularUnit* unit;
 @end

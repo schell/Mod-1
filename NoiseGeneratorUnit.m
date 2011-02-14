@@ -30,26 +30,41 @@
 #pragma mark -
 #pragma mark Rendering
 
-- (BOOL)output:(NSUInteger)aNumberOfFrames intoBufferList:(AudioBufferList*)outputData {
-	// default behaviour is to passthrough if input available, else render silence...
-	SAMPLE_TYPE* sample = outputData->mBuffers[0].mData;
-	UInt32 channelsPerFrame = self.dataFormat.mChannelsPerFrame;
-	
-	if (self.input.inputUnit != nil) {
-		[self.input.inputUnit output:aNumberOfFrames intoBufferList:outputData];
-	} else {
-		srand(time(NULL)+clock());
-		for (UInt32 i = 0; i < aNumberOfFrames; i++) {
-			SAMPLE_TYPE rando = rand()%SAMPLE_MAX;
-			//NSLog(@"%f",randf);
-			sample[0] = rando;
-			sample[1] = rando;
-			sample += channelsPerFrame;
-		}
+- (void)fillBufferUsingMethodOne:(SampleBuffer*)buffer {
+	for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+		buffer.leftChannel[i] = (rand()%0x1FFFFFE) - 0x00FFFFFF;
+		if (buffer.isStereo) {
+			buffer.rightChannel[i] = (rand()%0x1FFFFFE) - 0x00FFFFFF;
+		}	
 	}
+}
+
+- (void)fillBufferUsingMethodTwo:(SampleBuffer *)buffer {
+	const AudioUnitSampleType range = 0x1FFFFFE;
+	const AudioUnitSampleType maxAmplitude = 0x00FFFFFF;
+	const AudioUnitSampleType factor = (double)RAND_MAX/(double)range;
 	
-	outputData->mBuffers[0].mDataByteSize = aNumberOfFrames*self.dataFormat.mBytesPerFrame;
-	
+	for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+		buffer.leftChannel[i] = rand()/factor - maxAmplitude;
+		if (buffer.isStereo) {
+			buffer.rightChannel[i] = rand()/factor - maxAmplitude;
+		}	
+	}
+}
+
+static time_t timer = 0;
+static bool mod = 0;
+- (BOOL)fillBuffer:(SampleBuffer*)buffer {
+	time_t newTime = time(NULL);
+	if (newTime - timer > 1) {
+		timer = newTime;
+		mod = !mod;
+	}
+	if (mod) {
+		[self fillBufferUsingMethodOne:buffer];
+	} else {
+		[self fillBufferUsingMethodTwo:buffer];
+	}
 	return YES;
 }
 @end

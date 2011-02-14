@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "Mod1AUGraph.h"
+#import "Mod1Graph.h"
 
 @interface RootAudioController : NSObject <AVAudioSessionDelegate> {
 	AVAudioSession* _session;
-	Mod1AUGraph* _graph;
+	Mod1Graph* _graph;
 }
 - (AVAudioSession*)audioSession;
 - (void)setupAudioSession;
 - (void)activateAudioSession;
-- (Mod1AUGraph*)mainGraph;
+- (Mod1Graph*)mainGraph;
 - (void)startGraph;
 - (void)stopGraph;
 @end

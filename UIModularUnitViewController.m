@@ -24,6 +24,7 @@ static CGFloat thirdOfPortraitWidth = 0;
 	if (thirdOfPortraitWidth == 0) {
 		thirdOfPortraitWidth = [self portraitFrame].size.width/3.0;
 	}
+	_dragging = NO;
 	return self;
 }
 
@@ -43,9 +44,9 @@ static CGFloat thirdOfPortraitWidth = 0;
 
 - (void)dealloc {
 	[_backgroundView release];
-	[_connectionsView release];
-	[_inputsController release];
-	[_outputsController release];
+	[_windowBarView release];
+	[_icon release];
+	[_connectionsTableController release];
     [super dealloc];
 }
 
@@ -59,38 +60,113 @@ static CGFloat thirdOfPortraitWidth = 0;
 }
 
 #pragma mark -
-#pragma mark View Creation & Layout
+#pragma mark Layout
+
+- (CGRect)frameForDefault {
+	return CGRectMake(0, 0, thirdOfPortraitWidth, thirdOfPortraitWidth);
+}
+
+- (CGRect)frameForBackground {
+	return [self frameForDefault];
+}
+
+- (CGRect)frameForConnectionsTableView {
+	int border = 2;
+	return CGRectMake(border, 50 + border, thirdOfPortraitWidth - 2*border, thirdOfPortraitWidth - 50 - 2*border);
+}
+
+#pragma mark -
+#pragma mark View Creation
 
 - (void)createView {
-	self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, thirdOfPortraitWidth)];
+	self.view.frame = [self frameForDefault];
 	self.view.backgroundColor = [UIColor clearColor];
 	self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
-	self.view.layer.shadowOpacity = 0.5f;
-	self.view.layer.shadowRadius = 6;
-	self.view.layer.shadowOffset = CGSizeMake(0, 4.0);
+	[self setShadowForState:UIViewStateAtRest];
 	
-	_backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, thirdOfPortraitWidth)];
+	_backgroundView = [[UIView alloc] initWithFrame:[self frameForBackground]];
 	_backgroundView.backgroundColor = [UIColor colorWithRed:0.12 green:0.12 blue:0.12 alpha:0.7];
 	_backgroundView.layer.cornerRadius = 8;
 	_backgroundView.layer.masksToBounds = YES;
 	[self.view addSubview:_backgroundView];
 	
-	_connectionsView = [[UIView alloc] initWithFrame:CGRectMake(1, 51, thirdOfPortraitWidth-2, thirdOfPortraitWidth - 52)];
-	_connectionsView.backgroundColor = [UIColor whiteColor];
-	_connectionsView.layer.cornerRadius = 8;
-	_connectionsView.layer.masksToBounds = YES;
-	[self.view addSubview:_connectionsView];
+	_windowBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, 15)];
+	_windowBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"windowbar.png"]];
+	[_backgroundView addSubview:_windowBarView];
 	
-	NSArray* connections = [self.unit connections];
-	//_inputConnections = [NSMutableArray array];
-//	_outputConnections = [NSMutableArray array];
-//	for (int i = 0; i < [connections count]; i++) {
-//		ModularConnection*
-//	}
+	_connectionsTableController = [[UIModularConnectionsTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	_connectionsTableController.tableView.frame = [self frameForConnectionsTableView];
+	_connectionsTableController.tableView.backgroundColor = [UIColor whiteColor];
+	_connectionsTableController.tableView.layer.cornerRadius = 8;
+	_connectionsTableController.tableView.layer.masksToBounds = YES;
+	//[_backgroundView addSubview:_connectionsTableController.tableView];
+	
+	_icon = [[UIImageView alloc] initWithImage:[self icon]];
+	_icon.frame = CGRectMake(10, 0, 32, 32);
+	_icon.center = CGPointMake(_icon.center.x, (15 + _connectionsTableController.tableView.frame.origin.y)/2);
+	_icon.layer.shadowColor = [[UIColor blackColor] CGColor];
+	_icon.layer.shadowOpacity = 30.0f;
+	_icon.layer.shadowRadius = 3;
+	_icon.layer.shadowOffset = CGSizeMake(0, 2);
+	[_backgroundView addSubview:_icon];
 }
 
 - (CGFloat)oneThirdPortraitWidth {
 	return thirdOfPortraitWidth;
+}
+
+#pragma mark -
+#pragma mark View Customizations
+
+- (UIImage*)icon {
+	return [UIImage imageNamed:@"icon.png"];
+}
+
+- (void)setShadowForState:(UIViewState)state {
+	switch (state) {
+		case UIViewStateAtRest:
+			self.view.layer.shadowOpacity = 0.7f;
+			self.view.layer.shadowRadius = 6;
+			self.view.layer.shadowOffset = CGSizeMake(0, 4.0);
+			break;
+		case UIViewStateDragging:
+			self.view.layer.shadowOpacity = 0.7f;
+			self.view.layer.shadowRadius = 10;
+			self.view.layer.shadowOffset = CGSizeMake(0, 4.0);
+			break; //UIInterfaceOrientation
+		default:
+			break;
+	}
+}
+
+#pragma mark -
+#pragma mark Dragging
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSLog(@"%s",__FUNCTION__);
+	UITouch* tap = [touches anyObject];
+	CGPoint loc = [tap locationInView:_backgroundView];
+	if (CGRectContainsPoint(_windowBarView.frame, loc)) {
+		_dragging = YES;
+		_draggingOffset = loc;
+		[self setShadowForState:UIViewStateDragging];
+	}
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (_dragging) {
+		UITouch* tap = [touches anyObject];
+		CGPoint loc = [tap locationInView:self.view.superview];
+		CGRect viewFrame = self.view.frame;
+		viewFrame.origin = CGPointMake(loc.x - _draggingOffset.x, loc.y - _draggingOffset.y);
+		self.view.frame = viewFrame;
+	}
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch* tap = [touches anyObject];
+	_dragging = NO;
+	[self setShadowForState:UIViewStateAtRest];
 }
 
 @end

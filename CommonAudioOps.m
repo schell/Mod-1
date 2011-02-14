@@ -8,7 +8,6 @@
  */
 
 #include "CommonAudioOps.h"
-#include <AudioToolbox/AudioToolbox.h>
 
 AudioBufferList* AllocateABL(UInt32 channelsPerFrame, UInt32 bytesPerFrame, bool interleaved, UInt32 aNumberOfFrames)
 {
@@ -30,35 +29,33 @@ AudioBufferList* AllocateABL(UInt32 channelsPerFrame, UInt32 bytesPerFrame, bool
     return bufferList;
 }
 
-AudioStreamBasicDescription DefaultAudioStreamBasicDescription() {
-	UInt32 formatFlags = (0 
-						  | kAudioFormatFlagIsSignedInteger
-						  | kAudioFormatFlagIsPacked
-						  | kAudioFormatFlagsNativeEndian);
-	AudioStreamBasicDescription dataFormat = (AudioStreamBasicDescription) {0};
-	dataFormat.mFormatID = kAudioFormatLinearPCM;
-	dataFormat.mFormatFlags = formatFlags;
-	dataFormat.mSampleRate = 44100.0;
-	dataFormat.mBitsPerChannel = 8 * sizeof(SAMPLE_TYPE);
-	dataFormat.mChannelsPerFrame = 2;
-	dataFormat.mBytesPerFrame = dataFormat.mChannelsPerFrame * sizeof(SAMPLE_TYPE);
-	dataFormat.mFramesPerPacket = 1;
-	dataFormat.mBytesPerPacket = dataFormat.mFramesPerPacket * dataFormat.mBytesPerFrame;
-	return dataFormat;
-}
-
-
 void GenerateSilenceInBufferList(AudioStreamBasicDescription dataFormat, UInt32 aNumberOfFrames, AudioBufferList* outputData) {
-	SAMPLE_TYPE* sample = outputData->mBuffers[0].mData;
-	UInt32 channelsPerFrame = dataFormat.mChannelsPerFrame;
+	SInt32* left = outputData->mBuffers[0].mData;
+	SInt32* right = outputData->mBuffers[1].mData;
+	UInt32 channelsPerFrame = dataFormat.mChannelsPerFrame; // should be one outputData.mNumBuffers should be 2
 	
 	// silence
 	for (UInt32 i = 0; i < aNumberOfFrames; i++) {
-		sample[0] = 0;
-		sample[1] = 0;
-		sample += channelsPerFrame;
+		left[0] = 0;
+		right[1] = 0;
+		left += channelsPerFrame;
+		right += channelsPerFrame;
 	}
 	
-	outputData->mBuffers[0].mDataByteSize = aNumberOfFrames * dataFormat.mBytesPerFrame;
+	outputData->mBuffers[0].mDataByteSize = outputData->mBuffers[1].mDataByteSize = aNumberOfFrames * dataFormat.mBytesPerFrame;
 	
 }
+
+#pragma mark -
+#pragma mark Working with samples
+
+CGFloat scale_unit2float(AudioUnitSampleType sample) {
+	AudioUnitSampleType whole = sample >> 24;
+	AudioUnitSampleType max = (INT32_MAX & 0x00FFFFFF);
+	CGFloat fraction = (CGFloat)(sample & 0x00FFFFFF)/max;
+	return (CGFloat)whole+fraction;
+}
+
+#pragma mark -
+#pragma mark Generators
+

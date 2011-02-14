@@ -58,8 +58,8 @@
 		_headUnitViewController.unit = [_rootAudioController mainGraph].headUnit;
 		[_headUnitViewController createView];
 		[self.view addSubview:_headUnitViewController.view];
-		CGRect viewFrame = [self viewFrameWithOrientation:self.interfaceOrientation];
-		_headUnitViewController.view.center = CGPointMake(viewFrame.size.width/2, viewFrame.size.width/3);
+		CGSize landscape = CGSizeMake(1024, 748);
+		_headUnitViewController.view.center = CGPointMake(landscape.width/2,landscape.height/2);
 	}
 	[_rootAudioController mainGraph].headUnit.defaultGain = 0;
 }
@@ -70,7 +70,17 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-	return YES;
+	switch (toInterfaceOrientation) {
+		case UIInterfaceOrientationLandscapeLeft:
+		case UIInterfaceOrientationLandscapeRight:
+			return YES;
+		default:
+			return NO;
+	}
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	
 }
 
 #pragma mark -
@@ -116,26 +126,26 @@
 #pragma mark -
 #pragma mark User Interaction
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch* anyTouch = [touches anyObject];
-	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-	[self setVolumeAndFrequencyUsingPoint:loc];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch* anyTouch = [touches anyObject];
-	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-	[self setVolumeAndFrequencyUsingPoint:loc];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch* anyTouch = [touches anyObject];
-	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-	[self setVolumeAndFrequencyUsingPoint:loc];
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//	UITouch* anyTouch = [touches anyObject];
+//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
+//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
+//	[self setVolumeAndFrequencyUsingPoint:loc];
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+//	UITouch* anyTouch = [touches anyObject];
+//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
+//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
+//	[self setVolumeAndFrequencyUsingPoint:loc];
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//	UITouch* anyTouch = [touches anyObject];
+//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
+//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
+//	[self setVolumeAndFrequencyUsingPoint:loc];
+//}
 
 #pragma mark -
 #pragma mark Config
@@ -144,7 +154,7 @@
 	CGFloat freq = 5000.0f * loc.x;
 	CGFloat volume = loc.y;
 	[self setLabelText:[NSString stringWithFormat:@"freq:%0.2f vol:%0.2f",freq,volume]];
-	[_rootAudioController mainGraph].headUnit.defaultGain = volume * INT16_MAX;
+	//[_rootAudioController mainGraph].headUnit.defaultGain = volume;
 }
 
 @end

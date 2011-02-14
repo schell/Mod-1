@@ -10,10 +10,12 @@
 #import "ModularUnit.h"
 #import "SineWaveGenerator.h"
 
+#define DEFAULT_FREQ 440.0
+
 @interface SineWaveGeneratorUnit : ModularUnit {
-	CGFloat leftPhase;
-	CGFloat rightPhase;
+	CGFloat phase;
 }
 @property (readwrite,retain) ModularConnection* frequency;
 @property (readwrite,retain) ModularConnection* amplitude;
+@property (readwrite,retain) ModularConnection* phaseDifference;
 @end

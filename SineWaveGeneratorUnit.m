@@ -11,16 +11,13 @@
 #import "ModularConnection.h"
 #import "CommonAudioOps.h"
 
-#define DEFAULT_FREQ 440.0
-
 @implementation SineWaveGeneratorUnit
-@synthesize frequency,amplitude;
+@synthesize frequency,amplitude,phaseDifference;
 
 - (id)init {
 	NSLog(@"%s",__FUNCTION__);
 	self = [super init];
-	leftPhase = 0.0;
-	rightPhase = 0.0;
+	phase = 0.0;
 	return self;
 }
 
@@ -33,76 +30,26 @@
 	self.input = nil;
 	self.frequency = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"frequency"];
 	self.amplitude = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"amplitude"];
+	self.phaseDifference = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"phase difference"];
 	return YES;
 }
 
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.output,self.frequency,self.amplitude,nil];
+	return [NSArray arrayWithObjects:self.output,self.frequency,self.amplitude,self.phaseDifference,nil];
 }
 
 #pragma mark -
 #pragma mark Rendering
 
-- (BOOL)output:(NSUInteger)aNumberOfFrames intoBuffer:(AudioBufferList*)outputData {
-	
-	SAMPLE_TYPE* outputSample = outputData->mBuffers[0].mData;
-	SAMPLE_TYPE left = 0.0f;
-	SAMPLE_TYPE right = 0.0f;
-	UInt32 channelsPerFrame = self.dataFormat.mChannelsPerFrame;
-	
-	AudioBufferList* freqBuffer;
-	AudioBufferList* ampBuffer;
-	BOOL hasFreqInput = self.frequency.inputUnit != nil;
-	BOOL hasAmpInput = self.amplitude.inputUnit != nil;
-	SAMPLE_TYPE* freqSample;
-	SAMPLE_TYPE* ampSample;
-	
-	if (hasFreqInput) {
-		freqBuffer = AllocateABL(channelsPerFrame, self.dataFormat.mBytesPerFrame, true, aNumberOfFrames);
-		freqSample = freqBuffer->mBuffers[0].mData;
+- (BOOL)fillBuffer:(SampleBuffer*)buffer {
+	float phaseInc = 2.0 * M_PI * DEFAULT_FREQ/44100.0;
+	for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
+		buffer.leftChannel[i] = (AudioUnitSampleType) (sin(phase)*(CGFloat)0x00FFFFFF);
+		if (buffer.isStereo) {
+			buffer.rightChannel[i] = (AudioUnitSampleType) (sin(phase)*(CGFloat)0x00FFFFFF);
+		}
+		phase = fmod(phase + phaseInc, 2.0 * M_PI);
 	}
-	if (hasAmpInput) {
-		ampBuffer = AllocateABL(channelsPerFrame, self.dataFormat.mBytesPerFrame, true, aNumberOfFrames);
-		ampSample = ampBuffer->mBuffers[0].mData;
-	}
-	
-	for (UInt32 i = 0; i < aNumberOfFrames; i++) {
-		CGFloat phaseIncLeft,phaseIncRight;
-		if (hasFreqInput) {
-			phaseIncLeft = freqSample[0] * 2*M_PI / self.dataFormat.mSampleRate;
-			phaseIncRight = freqSample[1] * 2*M_PI / self.dataFormat.mSampleRate;
-			freqSample += channelsPerFrame;
-		} else {
-			phaseIncLeft = phaseIncRight = DEFAULT_FREQ * 2*M_PI / self.dataFormat.mSampleRate;
-		}
-
-		left = sinf(leftPhase);
-		right = sinf(rightPhase);
-		
-		leftPhase += phaseIncLeft;
-		rightPhase += phaseIncRight;
-		// Keep the values between 0 and 2*M_PI
-		while (leftPhase > 2*M_PI) {
-			leftPhase -= 2*M_PI;
-		}
-		while (rightPhase > 2*M_PI) {
-			rightPhase -= 2*M_PI;
-		}
-		
-		if (hasAmpInput) {
-			left *= ampSample[0];
-			right *= ampSample[1];
-			ampSample += channelsPerFrame;
-		}
-		outputSample[0] = left;
-		outputSample[1] = right;
-		outputSample += channelsPerFrame;
-	}
-	
-	outputData->mBuffers[0].mDataByteSize = aNumberOfFrames*self.dataFormat.mBytesPerFrame;
-	
-	free(freqBuffer);
-	free(ampBuffer);
 	
 	return YES;
 }

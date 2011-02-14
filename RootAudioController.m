@@ -15,6 +15,8 @@
 #pragma mark LifeCycle
 
 - (id)init {
+	SInt32 sample = 1.0;
+	NSLog(@"%i",sample);
 	self = [super init];
 	_session = nil;
 	_graph = nil;
@@ -73,9 +75,9 @@
 #pragma mark -
 #pragma mark AudioUnitGraph
 
-- (Mod1AUGraph*)mainGraph {
+- (Mod1Graph*)mainGraph {
 	if (_graph == nil) {
-		_graph = [[Mod1AUGraph alloc] init];
+		_graph = [[Mod1Graph alloc] init];
 	}
 	return _graph;
 }

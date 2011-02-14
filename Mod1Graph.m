@@ -6,20 +6,30 @@
 //  Copyright 2011 Electrunique. All rights reserved.
 //
 
-#import "Mod1AUGraph.h"
+#import "Mod1Graph.h"
 #import "ModularConnection.h"
 #import "NoiseGeneratorUnit.h"
 #import "GainUnit.h"
 #import "CommonAudioOps.h"
+#import "SampleBuffer.h"
+#import "SineWaveGeneratorUnit.h"
+#import "SquareWaveGeneratorUnit.h"
 
 #define FAIL_ON_ERR(_X_) if ((status = (_X_)) != noErr) { goto failed; }
+#define SCALE_UNIT_2_IO(_sample_) (AudioSampleType)((_sample_/512) & 0x00FFFFFF)
+//__inline AudioSampleType scale_unit2io(AudioUnitSampleType sample) {
+//	AudioUnitSampleType fraction = sample/512;
+//	return (AudioSampleType)(fraction & 0x00FFFFFF);
+//}
 
-@interface Mod1AUGraph (PrivateMethods)
+@interface Mod1Graph (PrivateMethods)
 - (OSStatus)addOutputNode;
 - (OSStatus)addConverterNode;
 - (OSStatus)setDataFormatOfConverterAudioUnit;
+- (OSStatus)setDataFormatOfOutputAudioUnit;
 - (OSStatus)setMaximumFramesPerSlice;
 - (OSStatus)setRenderCallbackOfConverterNode;
+- (OSStatus)setRenderCallbackOfOutputNode;
 - (void)setupDataFormat;
 @end
 
@@ -30,7 +40,7 @@ static OSStatus render(void*						inRefCon,
 						   UInt32						inNumberFrames,
 						   AudioBufferList*				ioData);
 
-@implementation Mod1AUGraph
+@implementation Mod1Graph
 @synthesize headUnit;
 
 #pragma mark -
@@ -41,10 +51,15 @@ static OSStatus render(void*						inRefCon,
 	self = [super init];
 	
 	headUnit = [[HeadUnit alloc] init];
-	_gainUnit = [[GainUnit alloc] init];
-	_noiseUnit = [[NoiseGeneratorUnit alloc] init];
-	headUnit.input.inputUnit = _gainUnit;
-	_gainUnit.input.inputUnit = _noiseUnit;
+	ModularUnit* unit;
+	SineWaveGeneratorUnit* sineUnit = [[[SineWaveGeneratorUnit alloc] init] autorelease];
+	SquareWaveGeneratorUnit* squareUnit = [[[SquareWaveGeneratorUnit alloc] init] autorelease];
+	NoiseGeneratorUnit* noiseUnit = [[[NoiseGeneratorUnit alloc] init] autorelease];
+	
+	unit = noiseUnit;
+	
+	headUnit.input.inputUnit = unit;
+	unit.output.outputUnit = headUnit;
 	
 	[self setupDataFormat];
 	
@@ -62,12 +77,9 @@ static OSStatus render(void*						inRefCon,
 	
 	FAIL_ON_ERR(NewAUGraph(&_graph));
 	FAIL_ON_ERR([self addOutputNode]);
-	FAIL_ON_ERR([self addConverterNode]);
-	FAIL_ON_ERR(AUGraphConnectNodeInput(_graph, _converterNode, 0, _outputNode, 0));
 	FAIL_ON_ERR(AUGraphOpen(_graph));
-	FAIL_ON_ERR([self setDataFormatOfConverterAudioUnit]);
-	FAIL_ON_ERR([self setMaximumFramesPerSlice]);
-	FAIL_ON_ERR([self setRenderCallbackOfConverterNode]);
+	FAIL_ON_ERR([self setDataFormatOfOutputAudioUnit]);
+	FAIL_ON_ERR([self setRenderCallbackOfOutputNode]);
 	FAIL_ON_ERR(AUGraphInitialize(_graph));
 	FAIL_ON_ERR(AUGraphStart(_graph));
 	
@@ -117,54 +129,36 @@ failed:
 	return AUGraphAddNode(_graph, &description, &_outputNode);
 }
 
-- (OSStatus)addConverterNode {
-	AudioComponentDescription description = {0};
-	description.componentType = kAudioUnitType_FormatConverter;
-	description.componentSubType = kAudioUnitSubType_AUConverter;
-	description.componentManufacturer = kAudioUnitManufacturer_Apple;
-	return AUGraphAddNode(_graph, &description, &_converterNode);
-}
-
 - (void)setupDataFormat {
-	_dataFormat = DefaultAudioStreamBasicDescription();
+	UInt32 formatFlags = 0 | kAudioFormatFlagsAudioUnitCanonical;
+	AudioStreamBasicDescription dataFormat = (AudioStreamBasicDescription) {0};
+	dataFormat.mFormatID = kAudioFormatLinearPCM;
+	dataFormat.mFormatFlags = formatFlags;
+	dataFormat.mSampleRate = 44100.0;
+	dataFormat.mBitsPerChannel = 8 * sizeof(AudioUnitSampleType);
+	dataFormat.mChannelsPerFrame = 2;
+	dataFormat.mBytesPerFrame = sizeof(AudioUnitSampleType);
+	dataFormat.mFramesPerPacket = 1;
+	dataFormat.mBytesPerPacket = dataFormat.mBytesPerFrame;
+	_dataFormat = dataFormat;
 }
 
-- (OSStatus)setDataFormatOfConverterAudioUnit {
-	AudioUnit converterAudioUnit;
+- (OSStatus)setDataFormatOfOutputAudioUnit {
+	AudioUnit outputAudioUnit;
 	OSStatus status;
-	status = AUGraphNodeInfo(_graph, _converterNode, NULL, &converterAudioUnit);
+	status = AUGraphNodeInfo(_graph, _outputNode, NULL, &outputAudioUnit);
 	if (status != noErr) {
 		return status;
 	}
-	status = AudioUnitSetProperty(converterAudioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &_dataFormat, sizeof(_dataFormat));
+	status = AudioUnitSetProperty(outputAudioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &_dataFormat, sizeof(_dataFormat));
 	return status;
 }
 
-- (OSStatus)setMaximumFramesPerSlice {
-	/*
-     * See Technical Q&A QA1606 Audio Unit Processing Graph -
-     *   Ensuring audio playback continues when screen is locked
-     *
-     * http://developer.apple.com/iphone/library/qa/qa2009/qa1606.html
-     *
-     * Need to set kAudioUnitProperty_MaximumFramesPerSlice to 4096 on all
-     * non-output audio units.  In this case, that's only the converter unit.
-     */
-	AudioUnit audioUnit;
-	OSStatus status;
-	status = AUGraphNodeInfo(_graph, _converterNode, NULL, &audioUnit);
-	if (status != noErr) {
-		return status;
-	}
-	AudioUnitSetProperty(audioUnit, kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &(UInt32){4096}, sizeof(UInt32));
-	return status;
-}
-
-- (OSStatus)setRenderCallbackOfConverterNode {
+- (OSStatus)setRenderCallbackOfOutputNode {
 	AURenderCallbackStruct callback = {0};
 	callback.inputProc = render;
 	callback.inputProcRefCon = self;
-	return AUGraphSetNodeInputCallback(_graph, _converterNode, 0, &callback);
+	return AUGraphSetNodeInputCallback(_graph, _outputNode, 0, &callback);
 }
 
 #pragma mark -
@@ -176,11 +170,22 @@ static OSStatus render(void*						inRefCon,
 					   UInt32						inBusNumber,
 					   UInt32						inNumberFrames,
 					   AudioBufferList*				ioData) {
-	NSAutoreleasePool* threadPool = [[NSAutoreleasePool alloc] init];
-	Mod1AUGraph* self = inRefCon;
 	
-	[self->headUnit output:inNumberFrames intoBufferList:ioData]; 
-
+	NSAutoreleasePool* threadPool = [[NSAutoreleasePool alloc] init];
+	Mod1Graph* self = inRefCon;
+	SampleBuffer* sampleBuffer = [[SampleBuffer alloc] initWithNumberOfFrames:inNumberFrames inStereo:YES];
+	HeadUnit* headUnit = self.headUnit;
+	[headUnit fillBuffer:sampleBuffer];
+	
+	AudioUnitSampleType* left = ioData->mBuffers[0].mData;
+	AudioUnitSampleType* right = ioData->mBuffers[1].mData;
+	
+	for (UInt32 i = 0; i < inNumberFrames; i++) {
+		left[i] = sampleBuffer.leftChannel[i];
+		right[i] = sampleBuffer.rightChannel[i];
+	}
+	
+	[sampleBuffer release];
 	[threadPool drain];
 	return noErr;
 }
