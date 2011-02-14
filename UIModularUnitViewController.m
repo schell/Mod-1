@@ -46,7 +46,7 @@ static CGFloat thirdOfPortraitWidth = 0;
 	[_backgroundView release];
 	[_windowBarView release];
 	[_icon release];
-	[_connectionsTableController release];
+	[_connectionsController release];
     [super dealloc];
 }
 
@@ -79,7 +79,7 @@ static CGFloat thirdOfPortraitWidth = 0;
 #pragma mark View Creation
 
 - (void)createView {
-	self.view.frame = [self frameForDefault];
+	self.view = [[[UIView alloc] initWithFrame:[self frameForDefault]] autorelease];
 	self.view.backgroundColor = [UIColor clearColor];
 	self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
 	[self setShadowForState:UIViewStateAtRest];
@@ -94,16 +94,18 @@ static CGFloat thirdOfPortraitWidth = 0;
 	_windowBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"windowbar.png"]];
 	[_backgroundView addSubview:_windowBarView];
 	
-	_connectionsTableController = [[UIModularConnectionsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-	_connectionsTableController.tableView.frame = [self frameForConnectionsTableView];
-	_connectionsTableController.tableView.backgroundColor = [UIColor whiteColor];
-	_connectionsTableController.tableView.layer.cornerRadius = 8;
-	_connectionsTableController.tableView.layer.masksToBounds = YES;
-	//[_backgroundView addSubview:_connectionsTableController.tableView];
+	_connectionsController = [[UIModularConnectionsViewController alloc] init];
+	_connectionsController.view.frame = [self frameForConnectionsTableView];
+	_connectionsController.view.backgroundColor = [UIColor whiteColor];
+	_connectionsController.view.layer.cornerRadius = 8;
+	_connectionsController.view.layer.masksToBounds = YES;
+	_connectionsController.connections = [self.unit connections];
+	[_connectionsController createView];
+	[_backgroundView addSubview:_connectionsController.view];
 	
 	_icon = [[UIImageView alloc] initWithImage:[self icon]];
 	_icon.frame = CGRectMake(10, 0, 32, 32);
-	_icon.center = CGPointMake(_icon.center.x, (15 + _connectionsTableController.tableView.frame.origin.y)/2);
+	_icon.center = CGPointMake(_icon.center.x, (15 + _connectionsController.view.frame.origin.y)/2);
 	_icon.layer.shadowColor = [[UIColor blackColor] CGColor];
 	_icon.layer.shadowOpacity = 30.0f;
 	_icon.layer.shadowRadius = 3;

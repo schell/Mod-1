@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ModularUnit.h"
-#import "UIModularConnectionsTableViewController.h"
+#import "UIModularConnectionsViewController.h"
 
 typedef enum {
 	UIViewStateAtRest,
@@ -20,7 +20,7 @@ typedef enum {
 	UIView* _icon;
 	UIView* _backgroundView;
 	UIView* _windowBarView;
-	UIModularConnectionsTableViewController* _connectionsTableController;
+	UIModularConnectionsViewController* _connectionsController;
 	BOOL _dragging;
 	CGPoint _draggingOffset;
 }

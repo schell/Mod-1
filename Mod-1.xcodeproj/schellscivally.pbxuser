@@ -127,6 +127,54 @@
 			D147DDEF1308CE5700891416 /* PBXTextBookmark */ = D147DDEF1308CE5700891416 /* PBXTextBookmark */;
 			D147DDF01308CE5700891416 /* PBXTextBookmark */ = D147DDF01308CE5700891416 /* PBXTextBookmark */;
 			D147DDF11308CE5700891416 /* PBXTextBookmark */ = D147DDF11308CE5700891416 /* PBXTextBookmark */;
+			D147DE031308D06400891416 /* PBXTextBookmark */ = D147DE031308D06400891416 /* PBXTextBookmark */;
+			D147DE041308D06400891416 /* PBXTextBookmark */ = D147DE041308D06400891416 /* PBXTextBookmark */;
+			D147DE051308D06400891416 /* PBXTextBookmark */ = D147DE051308D06400891416 /* PBXTextBookmark */;
+			D147DE061308D06400891416 /* PBXTextBookmark */ = D147DE061308D06400891416 /* PBXTextBookmark */;
+			D147DE071308D06400891416 /* PBXTextBookmark */ = D147DE071308D06400891416 /* PBXTextBookmark */;
+			D147DE101308D08A00891416 /* PBXTextBookmark */ = D147DE101308D08A00891416 /* PBXTextBookmark */;
+			D147DE151308D23C00891416 /* PBXTextBookmark */ = D147DE151308D23C00891416 /* PBXTextBookmark */;
+			D147DE161308D23C00891416 /* PBXTextBookmark */ = D147DE161308D23C00891416 /* PBXTextBookmark */;
+			D147DE171308D23C00891416 /* PBXTextBookmark */ = D147DE171308D23C00891416 /* PBXTextBookmark */;
+			D147DE181308D23C00891416 /* PBXTextBookmark */ = D147DE181308D23C00891416 /* PBXTextBookmark */;
+			D147DE271308D42600891416 /* PBXTextBookmark */ = D147DE271308D42600891416 /* PBXTextBookmark */;
+			D147DE281308D42600891416 /* PBXTextBookmark */ = D147DE281308D42600891416 /* PBXTextBookmark */;
+			D147DE291308D42600891416 /* XCBuildMessageTextBookmark */ = D147DE291308D42600891416 /* XCBuildMessageTextBookmark */;
+			D147DE2A1308D42600891416 /* PBXTextBookmark */ = D147DE2A1308D42600891416 /* PBXTextBookmark */;
+			D147DE2B1308D42700891416 /* PBXTextBookmark */ = D147DE2B1308D42700891416 /* PBXTextBookmark */;
+			D147DE2C1308D42700891416 /* PBXTextBookmark */ = D147DE2C1308D42700891416 /* PBXTextBookmark */;
+			D147DE2D1308D42700891416 /* XCBuildMessageTextBookmark */ = D147DE2D1308D42700891416 /* XCBuildMessageTextBookmark */;
+			D147DE2E1308D42700891416 /* PBXTextBookmark */ = D147DE2E1308D42700891416 /* PBXTextBookmark */;
+			D147DE2F1308D42800891416 /* PBXTextBookmark */ = D147DE2F1308D42800891416 /* PBXTextBookmark */;
+			D147DE391308D5CE00891416 /* PBXTextBookmark */ = D147DE391308D5CE00891416 /* PBXTextBookmark */;
+			D147DE3A1308D5CE00891416 /* PBXTextBookmark */ = D147DE3A1308D5CE00891416 /* PBXTextBookmark */;
+			D147DE3B1308D5CE00891416 /* PBXTextBookmark */ = D147DE3B1308D5CE00891416 /* PBXTextBookmark */;
+			D147DE3C1308D5CE00891416 /* PBXTextBookmark */ = D147DE3C1308D5CE00891416 /* PBXTextBookmark */;
+			D147DE411308D70400891416 /* PBXTextBookmark */ = D147DE411308D70400891416 /* PBXTextBookmark */;
+			D147DE421308D70400891416 /* PBXTextBookmark */ = D147DE421308D70400891416 /* PBXTextBookmark */;
+			D147DE431308D70400891416 /* PBXTextBookmark */ = D147DE431308D70400891416 /* PBXTextBookmark */;
+			D147DE441308D70400891416 /* PBXTextBookmark */ = D147DE441308D70400891416 /* PBXTextBookmark */;
+			D147DE471308D82800891416 /* PBXTextBookmark */ = D147DE471308D82800891416 /* PBXTextBookmark */;
+			D147DE481308D82800891416 /* PBXTextBookmark */ = D147DE481308D82800891416 /* PBXTextBookmark */;
+			D147DE491308D82800891416 /* PBXTextBookmark */ = D147DE491308D82800891416 /* PBXTextBookmark */;
+			D147DE4C1308D8B100891416 /* PBXTextBookmark */ = D147DE4C1308D8B100891416 /* PBXTextBookmark */;
+			D147DE4E1308D8B100891416 /* PBXTextBookmark */ = D147DE4E1308D8B100891416 /* PBXTextBookmark */;
+			D147DE4F1308D8B100891416 /* PBXTextBookmark */ = D147DE4F1308D8B100891416 /* PBXTextBookmark */;
+			D147DE521308D8DE00891416 /* PBXTextBookmark */ = D147DE521308D8DE00891416 /* PBXTextBookmark */;
+			D147DE551308D91200891416 /* PBXTextBookmark */ = D147DE551308D91200891416 /* PBXTextBookmark */;
+			D147DE5A1308D92E00891416 /* PBXTextBookmark */ = D147DE5A1308D92E00891416 /* PBXTextBookmark */;
+			D147DE5F1308D95100891416 /* PBXTextBookmark */ = D147DE5F1308D95100891416 /* PBXTextBookmark */;
+			D147DE641308D99000891416 /* PBXTextBookmark */ = D147DE641308D99000891416 /* PBXTextBookmark */;
+			D147DE671308D9E700891416 /* PBXTextBookmark */ = D147DE671308D9E700891416 /* PBXTextBookmark */;
+			D147DE681308D9FE00891416 /* PBXTextBookmark */ = D147DE681308D9FE00891416 /* PBXTextBookmark */;
+			D147DE6B1308DA2500891416 /* PBXTextBookmark */ = D147DE6B1308DA2500891416 /* PBXTextBookmark */;
+			D147DE6E1308DA3800891416 /* PBXTextBookmark */ = D147DE6E1308DA3800891416 /* PBXTextBookmark */;
+			D147DE711308DA5800891416 /* PBXTextBookmark */ = D147DE711308DA5800891416 /* PBXTextBookmark */;
+			D147DE721308DA8500891416 /* PBXTextBookmark */ = D147DE721308DA8500891416 /* PBXTextBookmark */;
+			D147DE751308DA8F00891416 /* PBXTextBookmark */ = D147DE751308DA8F00891416 /* PBXTextBookmark */;
+			D147DE781308DAE100891416 /* PBXTextBookmark */ = D147DE781308DAE100891416 /* PBXTextBookmark */;
+			D147DE7B1308DB1E00891416 /* PBXTextBookmark */ = D147DE7B1308DB1E00891416 /* PBXTextBookmark */;
+			D147DE801308DBB500891416 /* PBXTextBookmark */ = D147DE801308DBB500891416 /* PBXTextBookmark */;
 			D161668412FDE082006286E4 = D161668412FDE082006286E4 /* PBXTextBookmark */;
 			D16166DB12FDF7D6006286E4 = D16166DB12FDF7D6006286E4 /* PBXBookmark */;
 			D16167D612FF1901006286E4 = D16167D612FF1901006286E4 /* PBXTextBookmark */;
@@ -314,7 +362,7 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 26";
 		rLen = 0;
-		rLoc = 650;
+		rLoc = 635;
 		rType = 0;
 		vrLen = 698;
 		vrLoc = 0;
@@ -324,7 +372,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 106";
 		rLen = 0;
-		rLoc = 3517;
+		rLoc = 3549;
 		rType = 0;
 		vrLen = 1669;
 		vrLoc = 1232;
@@ -364,7 +412,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 106";
 		rLen = 0;
-		rLoc = 3517;
+		rLoc = 3549;
 		rType = 0;
 		vrLen = 1666;
 		vrLoc = 1235;
@@ -374,7 +422,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 80";
 		rLen = 0;
-		rLoc = 2188;
+		rLoc = 2222;
 		rType = 0;
 		vrLen = 1731;
 		vrLoc = 1235;
@@ -384,7 +432,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 88";
 		rLen = 0;
-		rLoc = 3121;
+		rLoc = 3153;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 1229;
@@ -394,7 +442,7 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 18";
 		rLen = 0;
-		rLoc = 469;
+		rLoc = 464;
 		rType = 0;
 		vrLen = 723;
 		vrLoc = 0;
@@ -404,7 +452,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 85";
 		rLen = 0;
-		rLoc = 2919;
+		rLoc = 2961;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 1229;
@@ -414,7 +462,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 86";
 		rLen = 0;
-		rLoc = 2282;
+		rLoc = 2316;
 		rType = 0;
 		vrLen = 1875;
 		vrLoc = 1229;
@@ -424,7 +472,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 88";
 		rLen = 0;
-		rLoc = 2406;
+		rLoc = 2440;
 		rType = 0;
 		vrLen = 1881;
 		vrLoc = 1229;
@@ -434,7 +482,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 96";
 		rLen = 0;
-		rLoc = 3260;
+		rLoc = 3292;
 		rType = 0;
 		vrLen = 1986;
 		vrLoc = 1229;
@@ -444,7 +492,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 94";
 		rLen = 0;
-		rLoc = 3220;
+		rLoc = 3252;
 		rType = 0;
 		vrLen = 1984;
 		vrLoc = 1229;
@@ -454,7 +502,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 95";
 		rLen = 0;
-		rLoc = 3252;
+		rLoc = 3284;
 		rType = 0;
 		vrLen = 1984;
 		vrLoc = 1229;
@@ -464,7 +512,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 92";
 		rLen = 0;
-		rLoc = 3065;
+		rLoc = 3107;
 		rType = 0;
 		vrLen = 1991;
 		vrLoc = 1229;
@@ -474,7 +522,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 97";
 		rLen = 0;
-		rLoc = 3299;
+		rLoc = 3331;
 		rType = 0;
 		vrLen = 2036;
 		vrLoc = 1229;
@@ -484,7 +532,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 97";
 		rLen = 0;
-		rLoc = 3299;
+		rLoc = 3331;
 		rType = 0;
 		vrLen = 2072;
 		vrLoc = 1229;
@@ -494,7 +542,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 95";
 		rLen = 0;
-		rLoc = 3252;
+		rLoc = 3284;
 		rType = 0;
 		vrLen = 1991;
 		vrLoc = 1229;
@@ -504,7 +552,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 96";
 		rLen = 0;
-		rLoc = 3297;
+		rLoc = 3329;
 		rType = 0;
 		vrLen = 1991;
 		vrLoc = 1229;
@@ -514,7 +562,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 94";
 		rLen = 0;
-		rLoc = 3218;
+		rLoc = 3250;
 		rType = 0;
 		vrLen = 1992;
 		vrLoc = 1229;
@@ -524,7 +572,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 96";
 		rLen = 0;
-		rLoc = 3252;
+		rLoc = 3284;
 		rType = 0;
 		vrLen = 1993;
 		vrLoc = 1229;
@@ -534,7 +582,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 95";
 		rLen = 0;
-		rLoc = 3252;
+		rLoc = 3284;
 		rType = 0;
 		vrLen = 1992;
 		vrLoc = 1229;
@@ -544,7 +592,7 @@
 		fRef = D1D5415F12EFF1DF008235F3 /* RootViewController.m */;
 		name = "RootViewController.m: 132";
 		rLen = 0;
-		rLoc = 3424;
+		rLoc = 3209;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 2633;
@@ -554,7 +602,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 95";
 		rLen = 0;
-		rLoc = 3252;
+		rLoc = 3284;
 		rType = 0;
 		vrLen = 2054;
 		vrLoc = 1232;
@@ -564,7 +612,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 129";
 		rLen = 0;
-		rLoc = 4693;
+		rLoc = 4725;
 		rType = 0;
 		vrLen = 1511;
 		vrLoc = 2444;
@@ -574,7 +622,7 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 24";
 		rLen = 0;
-		rLoc = 583;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 721;
 		vrLoc = 0;
@@ -584,7 +632,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 130";
 		rLen = 0;
-		rLoc = 4693;
+		rLoc = 4725;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 2612;
@@ -594,7 +642,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 124";
 		rLen = 0;
-		rLoc = 4166;
+		rLoc = 4198;
 		rType = 0;
 		vrLen = 1292;
 		vrLoc = 2566;
@@ -604,7 +652,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 142";
 		rLen = 0;
-		rLoc = 4765;
+		rLoc = 4797;
 		rType = 0;
 		vrLen = 1250;
 		vrLoc = 2896;
@@ -614,24 +662,36 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 136";
 		rLen = 0;
-		rLoc = 4657;
+		rLoc = 4689;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 2896;
 	};
-	D147DDBA1308C71000891416 /* UIModularConnectionsTableViewController.h */ = {
+	D147DDBA1308C71000891416 /* UIModularConnectionsViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = UIModularConnectionsViewController.h;
+		path = "/Users/schellscivally/Code/obj-c/Mod-1/UIModularConnectionsViewController.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1232, 876}}";
-			sepNavSelRange = "{210, 0}";
+			sepNavSelRange = "{363, 0}";
 			sepNavVisRange = "{0, 363}";
 		};
 	};
-	D147DDBB1308C71000891416 /* UIModularConnectionsTableViewController.m */ = {
+	D147DDBB1308C71000891416 /* UIModularConnectionsViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = UIModularConnectionsViewController.m;
+		path = "/Users/schellscivally/Code/obj-c/Mod-1/UIModularConnectionsViewController.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{2838, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{2889, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{2939, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 3642}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {1232, 2520}}";
-			sepNavSelRange = "{290, 0}";
-			sepNavVisRange = "{0, 1258}";
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{2827, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{2878, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{2928, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 3631}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1232, 2340}}";
+			sepNavSelRange = "{325, 0}";
+			sepNavVisRange = "{2345, 1229}";
 		};
 	};
 	D147DDCA1308C83500891416 /* XCBuildMessageTextBookmark */ = {
@@ -671,20 +731,20 @@
 	};
 	D147DDEC1308CE5700891416 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = D147DDBA1308C71000891416 /* UIModularConnectionsTableViewController.h */;
+		fRef = D147DDBA1308C71000891416 /* UIModularConnectionsViewController.h */;
 		name = "UIModularConnectionsTableViewController.h: 10";
 		rLen = 0;
-		rLoc = 210;
+		rLoc = 209;
 		rType = 0;
-		vrLen = 363;
+		vrLen = 260;
 		vrLoc = 0;
 	};
 	D147DDED1308CE5700891416 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = D147DDBB1308C71000891416 /* UIModularConnectionsTableViewController.m */;
+		fRef = D147DDBB1308C71000891416 /* UIModularConnectionsViewController.m */;
 		name = "UIModularConnectionsTableViewController.m: 13";
 		rLen = 0;
-		rLoc = 290;
+		rLoc = 286;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 0;
@@ -704,7 +764,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 143";
 		rLen = 0;
-		rLoc = 4013;
+		rLoc = 4045;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 3408;
@@ -714,7 +774,7 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 25";
 		rLen = 0;
-		rLoc = 539;
+		rLoc = 524;
 		rType = 0;
 		vrLen = 802;
 		vrLoc = 0;
@@ -724,10 +784,505 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 20";
 		rLen = 0;
-		rLoc = 418;
+		rLoc = 413;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 0;
+	};
+	D147DE031308D06400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
+		name = "UIModularUnitViewController.h: 25";
+		rLen = 0;
+		rLoc = 568;
+		rType = 0;
+		vrLen = 757;
+		vrLoc = 0;
+	};
+	D147DE041308D06400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1D5415F12EFF1DF008235F3 /* RootViewController.m */;
+		name = "RootViewController.m: 134";
+		rLen = 0;
+		rLoc = 3507;
+		rType = 0;
+		vrLen = 1512;
+		vrLoc = 2911;
+	};
+	D147DE051308D06400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1D5415E12EFF1DF008235F3 /* RootViewController.h */;
+		name = "RootViewController.h: 17";
+		rLen = 0;
+		rLoc = 408;
+		rType = 0;
+		vrLen = 607;
+		vrLoc = 0;
+	};
+	D147DE061308D06400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 106";
+		rLen = 0;
+		rLoc = 3062;
+		rType = 0;
+		vrLen = 2024;
+		vrLoc = 1508;
+	};
+	D147DE071308D06400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 82";
+		rLen = 0;
+		rLoc = 1762;
+		rType = 0;
+		vrLen = 2059;
+		vrLoc = 1415;
+	};
+	D147DE101308D08A00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 106";
+		rLen = 0;
+		rLoc = 3062;
+		rType = 0;
+		vrLen = 2045;
+		vrLoc = 1415;
+	};
+	D147DE121308D20700891416 /* UIModularConnectionsViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1232, 876}}";
+			sepNavSelRange = "{267, 0}";
+			sepNavVisRange = "{0, 380}";
+		};
+	};
+	D147DE131308D20700891416 /* UIModularConnectionsViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1252, 1656}}";
+			sepNavSelRange = "{2070, 0}";
+			sepNavVisRange = "{832, 1408}";
+		};
+	};
+	D147DE151308D23C00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
+		name = "UIModularUnitViewController.h: 25";
+		rLen = 0;
+		rLoc = 568;
+		rType = 0;
+		vrLen = 757;
+		vrLoc = 0;
+	};
+	D147DE161308D23C00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 106";
+		rLen = 0;
+		rLoc = 3062;
+		rType = 0;
+		vrLen = 2045;
+		vrLoc = 1415;
+	};
+	D147DE171308D23C00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		rLen = 0;
+		rLoc = 9223372036854775927;
+		rType = 0;
+	};
+	D147DE181308D23C00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		name = "UIModularConnectionsViewController.h: 15";
+		rLen = 0;
+		rLoc = 373;
+		rType = 0;
+		vrLen = 310;
+		vrLoc = 0;
+	};
+	D147DE271308D42600891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		name = "UIModularConnectionsViewController.h: 11";
+		rLen = 34;
+		rLoc = 194;
+		rType = 0;
+		vrLen = 341;
+		vrLoc = 0;
+	};
+	D147DE281308D42600891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
+		name = "UIModularUnitViewController.h: 23";
+		rLen = 0;
+		rLoc = 524;
+		rType = 0;
+		vrLen = 742;
+		vrLoc = 0;
+	};
+	D147DE291308D42600891416 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'_connectionsTableController' undeclared (first use in this function)";
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 48;
+		rType = 1;
+	};
+	D147DE2A1308D42600891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 49";
+		rLen = 0;
+		rLoc = 1030;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 496;
+	};
+	D147DE2B1308D42700891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1790B0E12F48EC2001E1DCE /* Mod1Graph.m */;
+		name = "Mod1Graph.m: 56";
+		rLen = 0;
+		rLoc = 1582;
+		rType = 0;
+		vrLen = 689;
+		vrLoc = 1246;
+	};
+	D147DE2C1308D42700891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 49";
+		rLen = 0;
+		rLoc = 1054;
+		rType = 0;
+		vrLen = 578;
+		vrLoc = 728;
+	};
+	D147DE2D1308D42700891416 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Incomplete implementation of class 'UIModularConnectionsViewController'";
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 90;
+		rType = 1;
+	};
+	D147DE2E1308D42700891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 71";
+		rLen = 0;
+		rLoc = 994;
+		rType = 0;
+		vrLen = 628;
+		vrLoc = 1248;
+	};
+	D147DE2F1308D42800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 49";
+		rLen = 0;
+		rLoc = 1030;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 496;
+	};
+	D147DE391308D5CE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 99";
+		rLen = 0;
+		rLoc = 2900;
+		rType = 0;
+		vrLen = 2003;
+		vrLoc = 1486;
+	};
+	D147DE3A1308D5CE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 65";
+		rLen = 0;
+		rLoc = 2229;
+		rType = 0;
+		vrLen = 959;
+		vrLoc = 378;
+	};
+	D147DE3B1308D5CE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		name = "UIModularConnectionsViewController.h: 13";
+		rLen = 0;
+		rLoc = 323;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	D147DE3C1308D5CE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		name = "UIModularConnectionsViewController.h: 12";
+		rLen = 0;
+		rLoc = 267;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	D147DE411308D70400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE121308D20700891416 /* UIModularConnectionsViewController.h */;
+		name = "UIModularConnectionsViewController.h: 12";
+		rLen = 0;
+		rLoc = 267;
+		rType = 0;
+		vrLen = 380;
+		vrLoc = 0;
+	};
+	D147DE421308D70400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 60";
+		rLen = 0;
+		rLoc = 2229;
+		rType = 0;
+		vrLen = 836;
+		vrLoc = 323;
+	};
+	D147DE431308D70400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 103";
+		rLen = 0;
+		rLoc = 2900;
+		rType = 0;
+		vrLen = 2043;
+		vrLoc = 1445;
+	};
+	D147DE441308D70400891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 102";
+		rLen = 0;
+		rLoc = 2862;
+		rType = 0;
+		vrLen = 2043;
+		vrLoc = 1445;
+	};
+	D147DE471308D82800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
+		name = "UIModularUnitViewController.m: 102";
+		rLen = 0;
+		rLoc = 2862;
+		rType = 0;
+		vrLen = 2043;
+		vrLoc = 1445;
+	};
+	D147DE481308D82800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 60";
+		rLen = 0;
+		rLoc = 2229;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 301;
+	};
+	D147DE491308D82800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 70";
+		rLen = 0;
+		rLoc = 1369;
+		rType = 0;
+		vrLen = 1160;
+		vrLoc = 577;
+	};
+	D147DE4C1308D8B100891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE4D1308D8B100891416 /* UILabel.h */;
+		name = "UILabel.h: 16";
+		rLen = 66;
+		rLoc = 278;
+		rType = 0;
+		vrLen = 1661;
+		vrLoc = 0;
+	};
+	D147DE4D1308D8B100891416 /* UILabel.h */ = {
+		isa = PBXFileReference;
+		name = UILabel.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UILabel.h;
+		sourceTree = "<absolute>";
+	};
+	D147DE4E1308D8B100891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 69";
+		rLen = 0;
+		rLoc = 1369;
+		rType = 0;
+		vrLen = 1160;
+		vrLoc = 577;
+	};
+	D147DE4F1308D8B100891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 73";
+		rLen = 0;
+		rLoc = 1660;
+		rType = 0;
+		vrLen = 1084;
+		vrLoc = 718;
+	};
+	D147DE521308D8DE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 76";
+		rLen = 0;
+		rLoc = 1754;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 718;
+	};
+	D147DE551308D91200891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 76";
+		rLen = 0;
+		rLoc = 1754;
+		rType = 0;
+		vrLen = 1191;
+		vrLoc = 683;
+	};
+	D147DE5A1308D92E00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 77";
+		rLen = 0;
+		rLoc = 1754;
+		rType = 0;
+		vrLen = 1231;
+		vrLoc = 683;
+	};
+	D147DE5F1308D95100891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 71";
+		rLen = 0;
+		rLoc = 1520;
+		rType = 0;
+		vrLen = 1111;
+		vrLoc = 683;
+	};
+	D147DE641308D99000891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 73";
+		rLen = 0;
+		rLoc = 1658;
+		rType = 0;
+		vrLen = 1131;
+		vrLoc = 683;
+	};
+	D147DE671308D9E700891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 85";
+		rLen = 0;
+		rLoc = 2192;
+		rType = 0;
+		vrLen = 1399;
+		vrLoc = 832;
+	};
+	D147DE681308D9FE00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 84";
+		rLen = 0;
+		rLoc = 2189;
+		rType = 0;
+		vrLen = 1399;
+		vrLoc = 832;
+	};
+	D147DE6B1308DA2500891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 83";
+		rLen = 0;
+		rLoc = 2120;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 832;
+	};
+	D147DE6E1308DA3800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 83";
+		rLen = 0;
+		rLoc = 2157;
+		rType = 0;
+		vrLen = 1393;
+		vrLoc = 832;
+	};
+	D147DE711308DA5800891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 79";
+		rLen = 0;
+		rLoc = 1958;
+		rType = 0;
+		vrLen = 1380;
+		vrLoc = 832;
+	};
+	D147DE721308DA8500891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 70";
+		rLen = 0;
+		rLoc = 1431;
+		rType = 0;
+		vrLen = 1379;
+		vrLoc = 832;
+	};
+	D147DE751308DA8F00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 79";
+		rLen = 0;
+		rLoc = 1965;
+		rType = 0;
+		vrLen = 1383;
+		vrLoc = 832;
+	};
+	D147DE781308DAE100891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 82";
+		rLen = 0;
+		rLoc = 2092;
+		rType = 0;
+		vrLen = 1409;
+		vrLoc = 832;
+	};
+	D147DE7B1308DB1E00891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 81";
+		rLen = 0;
+		rLoc = 2070;
+		rType = 0;
+		vrLen = 1407;
+		vrLoc = 832;
+	};
+	D147DE801308DBB500891416 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */;
+		name = "UIModularConnectionsViewController.m: 81";
+		rLen = 0;
+		rLoc = 2070;
+		rType = 0;
+		vrLen = 1408;
+		vrLoc = 832;
 	};
 	D161665912FDD5AC006286E4 /* ModularUnit.h */ = {
 		uiCtxt = {
@@ -931,15 +1486,15 @@
 	D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1232, 876}}";
-			sepNavSelRange = "{418, 0}";
-			sepNavVisRange = "{0, 757}";
+			sepNavSelRange = "{524, 0}";
+			sepNavVisRange = "{0, 742}";
 		};
 	};
 	D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1232, 2988}}";
-			sepNavSelRange = "{4013, 0}";
-			sepNavVisRange = "{3408, 1356}";
+			sepNavIntBoundsRect = "{{0, 0}, {1232, 3150}}";
+			sepNavSelRange = "{2862, 0}";
+			sepNavVisRange = "{1445, 2043}";
 		};
 	};
 	D1616AEB12FF7B34006286E4 /* UIViewController+Layout.h */ = {
@@ -1021,7 +1576,7 @@
 		fRef = D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */;
 		name = "UIModularUnitViewController.h: 21";
 		rLen = 0;
-		rLoc = 583;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 664;
 		vrLoc = 0;
@@ -1035,9 +1590,9 @@
 	};
 	D1790B0E12F48EC2001E1DCE /* Mod1Graph.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1232, 3600}}";
-			sepNavSelRange = "{1435, 0}";
-			sepNavVisRange = "{785, 1290}";
+			sepNavIntBoundsRect = "{{0, 0}, {928, 3582}}";
+			sepNavSelRange = "{1582, 0}";
+			sepNavVisRange = "{1246, 689}";
 		};
 	};
 	D1790B2912F492E7001E1DCE /* MacTypes.h */ = {
@@ -1117,7 +1672,7 @@
 		fRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */;
 		name = "UIModularUnitViewController.m: 72";
 		rLen = 0;
-		rLoc = 1935;
+		rLoc = 1969;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 1058;
@@ -1409,15 +1964,15 @@
 	D1D5415E12EFF1DF008235F3 /* RootViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1232, 876}}";
-			sepNavSelRange = "{405, 0}";
+			sepNavSelRange = "{408, 0}";
 			sepNavVisRange = "{0, 607}";
 		};
 	};
 	D1D5415F12EFF1DF008235F3 /* RootViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1232, 2736}}";
-			sepNavSelRange = "{3424, 0}";
-			sepNavVisRange = "{2633, 1604}";
+			sepNavIntBoundsRect = "{{0, 0}, {1232, 2898}}";
+			sepNavSelRange = "{3507, 0}";
+			sepNavVisRange = "{2911, 1512}";
 		};
 	};
 	D1D5416F12EFF61A008235F3 /* RootAudioController.h */ = {

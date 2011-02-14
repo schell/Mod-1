@@ -18,7 +18,7 @@
 		D147DD1C1308AD5700891416 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD1B1308AD5700891416 /* speaker.png */; };
 		D147DD2A1308B09600891416 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD291308B09600891416 /* icon.png */; };
 		D147DD4D1308BEBE00891416 /* windowbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD4C1308BEBE00891416 /* windowbar.png */; };
-		D147DDBC1308C71000891416 /* UIModularConnectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DDBB1308C71000891416 /* UIModularConnectionsTableViewController.m */; };
+		D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */; };
 		D161665B12FDD5AC006286E4 /* ModularUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161665A12FDD5AC006286E4 /* ModularUnit.m */; };
 		D16166CD12FDF73A006286E4 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D16166CC12FDF73A006286E4 /* main_background.png */; };
 		D161670112FE06FA006286E4 /* ModularConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D16166FF12FE06FA006286E4 /* ModularConnection.m */; };
@@ -57,8 +57,8 @@
 		D147DD1B1308AD5700891416 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		D147DD291308B09600891416 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D147DD4C1308BEBE00891416 /* windowbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windowbar.png; sourceTree = "<group>"; };
-		D147DDBA1308C71000891416 /* UIModularConnectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularConnectionsTableViewController.h; sourceTree = "<group>"; };
-		D147DDBB1308C71000891416 /* UIModularConnectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularConnectionsTableViewController.m; sourceTree = "<group>"; };
+		D147DE121308D20700891416 /* UIModularConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularConnectionsViewController.h; sourceTree = "<group>"; };
+		D147DE131308D20700891416 /* UIModularConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularConnectionsViewController.m; sourceTree = "<group>"; };
 		D161665912FDD5AC006286E4 /* ModularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularUnit.h; sourceTree = "<group>"; };
 		D161665A12FDD5AC006286E4 /* ModularUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularUnit.m; sourceTree = "<group>"; };
 		D16166CC12FDF73A006286E4 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				D1D5415F12EFF1DF008235F3 /* RootViewController.m */,
 				D1D5416F12EFF61A008235F3 /* RootAudioController.h */,
 				D1D5417012EFF61A008235F3 /* RootAudioController.m */,
-				D161666112FDD8DC006286E4 /* View */,
+				D161666112FDD8DC006286E4 /* View Controllers */,
 				D1D5416D12EFF5FB008235F3 /* Audio */,
 				D1616AEA12FF7AE9006286E4 /* Categories */,
 			);
@@ -201,15 +201,23 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
-		D161666112FDD8DC006286E4 /* View */ = {
+		D147DE381308D5B400891416 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D161666112FDD8DC006286E4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D147DE381308D5B400891416 /* Views */,
 				D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */,
 				D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */,
-				D147DDBA1308C71000891416 /* UIModularConnectionsTableViewController.h */,
-				D147DDBB1308C71000891416 /* UIModularConnectionsTableViewController.m */,
+				D147DE121308D20700891416 /* UIModularConnectionsViewController.h */,
+				D147DE131308D20700891416 /* UIModularConnectionsViewController.m */,
 			);
-			name = View;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		D16166A012FDE210006286E4 /* UGens */ = {
@@ -377,7 +385,7 @@
 				D195F4CD1307592B00126ADC /* SineWaveGeneratorUnit.m in Sources */,
 				D195F4CE1307592E00126ADC /* GainUnit.m in Sources */,
 				D1CA305713078653003C1D55 /* SquareWaveGeneratorUnit.m in Sources */,
-				D147DDBC1308C71000891416 /* UIModularConnectionsTableViewController.m in Sources */,
+				D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
