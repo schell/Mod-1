@@ -12,7 +12,7 @@
 @implementation UIViewController (Layout)
 
 - (CGRect)portraitFrame {
-	CGRect portrait = [[UIScreen mainScreen] applicationFrame];
+	CGRect portrait = [[UIScreen mainScreen] bounds];
 	if (portrait.size.width > portrait.size.height) {
 		return CGRectMake(portrait.origin.x, portrait.origin.y, portrait.size.height, portrait.size.width);
 	}

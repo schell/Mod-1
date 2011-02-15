@@ -8,6 +8,7 @@
 
 #import "UIModularConnectionsViewController.h"
 #import "ModularConnection.h"
+#import "UIConnectionView.h"
 #import "UISocketView.h"
 
 @implementation UIModularConnectionsViewController
@@ -46,6 +47,8 @@
 	static UIView* wireView = nil;
 	if (wireView == nil) {
 		wireView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+		wireView.userInteractionEnabled = NO;
+		wireView.backgroundColor = [UIColor clearColor];
 	}
 	return wireView;
 }
@@ -73,13 +76,13 @@
 	return [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
 }
 
-- (UIView*)inputViewAtIndex:(UInt32)index {
+- (UIConnectionView*)inputViewAtIndex:(UInt32)index {
 	if (_inputViews != nil && [_inputViews count] > index) {
 		return [_inputViews objectAtIndex:index];
 	}
 	
 	CGRect headerViewFrame = [self frameForHeader];
-	UIView* input = [[[UIView alloc] initWithFrame:CGRectMake(headerViewFrame.size.width/2, headerViewFrame.size.height * (index + 1), headerViewFrame.size.width/2, headerViewFrame.size.height)] autorelease];
+	UIConnectionView* input = [[[UIConnectionView alloc] initWithFrame:CGRectMake(headerViewFrame.size.width/2, headerViewFrame.size.height * (index + 1), headerViewFrame.size.width/2, headerViewFrame.size.height)] autorelease];
 	input.backgroundColor = [self connectionsColor];
 	
 	ModularConnection* connection = [_inputConnections objectAtIndex:index];
@@ -87,28 +90,28 @@
 		connection = [[[ModularConnection alloc] init] autorelease];
 	}
 	
-	UILabel* connectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, input.frame.size.width, input.frame.size.height)];
-	connectionLabel.text = [NSString stringWithFormat:@"   %@",[connection name]];
-	connectionLabel.font = [UIFont systemFontOfSize:15.0];
-	connectionLabel.backgroundColor = [UIColor clearColor];
-	connectionLabel.textColor = [UIColor darkGrayColor];
-	connectionLabel.textAlignment = UITextAlignmentLeft;
-	[input addSubview:connectionLabel];
+	input.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, input.frame.size.width, input.frame.size.height)];
+	input.label.text = [NSString stringWithFormat:@"   %@",[connection name]];
+	input.label.font = [UIFont systemFontOfSize:15.0];
+	input.label.backgroundColor = [UIColor clearColor];
+	input.label.textColor = [UIColor darkGrayColor];
+	input.label.textAlignment = UITextAlignmentLeft;
+	[input addSubview:input.label];
 	
 	CGFloat radius = 10.0;
-	UISocketView* socket = [[[UISocketView alloc] initWithFrame:CGRectMake(input.frame.size.width - radius*2 - 10, input.frame.size.height/2 - radius, radius*2, radius*2)] autorelease];
-	[input addSubview:socket];
+	input.socketView = [[[UISocketView alloc] initWithFrame:CGRectMake(input.frame.size.width - radius*2 - 10, input.frame.size.height/2 - radius, radius*2, radius*2)] autorelease];
+	[input addSubview:input.socketView];
 	
 	return input;
 }
 
-- (UIView*)outputViewAtIndex:(UInt32)index {
+- (UIConnectionView*)outputViewAtIndex:(UInt32)index {
 	if (_outputViews != nil && [_outputViews count] > index) {
 		return [_outputViews objectAtIndex:index];
 	}
 	
 	CGRect headerViewFrame = [self frameForHeader];
-	UIView* output = [[[UIView alloc] initWithFrame:CGRectMake(0, headerViewFrame.size.height * (index + 1), headerViewFrame.size.width/2, headerViewFrame.size.height)] autorelease];
+	UIConnectionView* output = [[[UIView alloc] initWithFrame:CGRectMake(0, headerViewFrame.size.height * (index + 1), headerViewFrame.size.width/2, headerViewFrame.size.height)] autorelease];
 	output.backgroundColor = [self connectionsColor];
 	return output;
 }
@@ -117,7 +120,7 @@
 	if (_headerView == nil) {
 		_headerView = [[UIView alloc] initWithFrame:[self frameForHeader]];
 		
-		UILabel* outputLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width/2, _headerView.frame.size.height)];
+		UILabel* outputLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 1, _headerView.frame.size.width/2, _headerView.frame.size.height)];
 		outputLabel.text = @"  Output";
 		outputLabel.font = [UIFont boldSystemFontOfSize:20.0];
 		outputLabel.backgroundColor = [self connectionsColor];

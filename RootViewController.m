@@ -8,8 +8,13 @@
 
 #import "RootViewController.h"
 #import "UIViewController+Layout.h"
+#import "UIModularConnectionsViewController.h"
+#import "UIModularUnitMenuController.h"
 
 @implementation RootViewController
+
+#pragma mark -
+#pragma mark Statics
 
 #pragma mark -
 #pragma mark LifeCycle
@@ -34,13 +39,6 @@
 #pragma mark -
 #pragma mark View
 
-- (void)setLabelText:(NSString*)text {
-	_label.text = text;
-	CGRect labelFrame = CGRectMake(0, 0, 0, 0);
-	labelFrame.size = [_label.text sizeWithFont:_label.font];
-	_label.frame = labelFrame;
-}
-
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -51,15 +49,19 @@
 	NSLog(@"%s",__FUNCTION__);
 	self.view.backgroundColor = [UIColor clearColor];
 	if (![[self.view subviews] count]) {
-		_label = [[UILabel alloc] init];
-		[self setLabelText:@"Mod-1 Synthesizer"];
-		[self.view addSubview:_label];
 		_headUnitViewController = [[UIModularUnitViewController alloc] init];
 		_headUnitViewController.unit = [_rootAudioController mainGraph].headUnit;
 		[_headUnitViewController createView];
 		[self.view addSubview:_headUnitViewController.view];
-		CGSize landscape = CGSizeMake(1024, 748);
-		_headUnitViewController.view.center = CGPointMake(landscape.width/2,landscape.height/2);
+		CGRect frame = _headUnitViewController.view.frame;
+		frame.origin = CGPointMake(100, 100);
+		_headUnitViewController.view.frame = frame;
+		// add the shared wire view
+		[self.view addSubview:[UIModularConnectionsViewController sharedWireDisplayView]];
+		// add a two finger single tap recognizer
+		_twoFingerSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTapWithTwoFingers:)];
+		_twoFingerSingleTap.numberOfTouchesRequired = 2;
+		[self.view addGestureRecognizer:_twoFingerSingleTap];
 	}
 	[_rootAudioController mainGraph].headUnit.defaultGain = 0;
 }
@@ -73,6 +75,8 @@
 	switch (toInterfaceOrientation) {
 		case UIInterfaceOrientationLandscapeLeft:
 		case UIInterfaceOrientationLandscapeRight:
+		case UIInterfaceOrientationPortrait:
+		case UIInterfaceOrientationPortraitUpsideDown:
 			return YES;
 		default:
 			return NO;
@@ -80,7 +84,17 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-	
+	NSLog(@"%s",__FUNCTION__);
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	NSLog(@"%s",__FUNCTION__);
+	CGRect viewFrame = [self viewFrameWithOrientation:toInterfaceOrientation];
+	[UIModularConnectionsViewController sharedWireDisplayView].frame = viewFrame;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	NSLog(@"%s",__FUNCTION__);
 }
 
 #pragma mark -
@@ -126,35 +140,33 @@
 #pragma mark -
 #pragma mark User Interaction
 
+- (void)didSingleTapWithTwoFingers:(UITapGestureRecognizer *)tap {
+	NSLog(@"%s",__FUNCTION__);
+	CGPoint loc = [tap locationInView:self.view];
+	if (_menuController == nil) {
+		_menuController = [[UIModularUnitMenuController alloc] init];
+		_menuController.tableView.backgroundColor = [UIColor whiteColor];
+		_menuController.tableView.frame = CGRectMake(0, 0, [_headUnitViewController oneThirdPortraitWidth], [_headUnitViewController oneThirdPortraitWidth]);
+		
+	}
+	_menuController.tableView.center = loc;
+	[self.view addSubview:_menuController.tableView];
+}
+
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//	UITouch* anyTouch = [touches anyObject];
-//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-//	[self setVolumeAndFrequencyUsingPoint:loc];
+//
 //}
 //
 //- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-//	UITouch* anyTouch = [touches anyObject];
-//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-//	[self setVolumeAndFrequencyUsingPoint:loc];
 //}
 //
 //- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//	UITouch* anyTouch = [touches anyObject];
-//	CGPoint loc = [self normalizeScreenCoordinates:[anyTouch locationInView:self.view]];
-//	NSLog(@"%s%f %f",__FUNCTION__,loc.x,loc.y);
-//	[self setVolumeAndFrequencyUsingPoint:loc];
 //}
 
 #pragma mark -
 #pragma mark Config
 
 - (void)setVolumeAndFrequencyUsingPoint:(CGPoint)loc {
-	CGFloat freq = 5000.0f * loc.x;
-	CGFloat volume = loc.y;
-	[self setLabelText:[NSString stringWithFormat:@"freq:%0.2f vol:%0.2f",freq,volume]];
-	//[_rootAudioController mainGraph].headUnit.defaultGain = volume;
 }
 
 @end

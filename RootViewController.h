@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "RootAudioController.h"
 #import "UIModularUnitViewController.h"
+#import "UIModularUnitMenuController.h"
 
 @interface RootViewController : UIViewController {
 	RootAudioController* _rootAudioController;
-	UILabel* _label;
 	UIModularUnitViewController* _headUnitViewController;
+	UIModularUnitMenuController* _menuController;
+	UITapGestureRecognizer* _twoFingerSingleTap;
 }
 + (CGSize)portraitSize;
 + (CGSize)landscapeSize;
-- (CGPoint)normalizeScreenCoordinates:(CGPoint)loc;
-- (void)setVolumeAndFrequencyUsingPoint:(CGPoint)loc;
-- (void)setLabelText:(NSString*)text;
+- (void)didSingleTapWithTwoFingers:(UITapGestureRecognizer*)tap;
 @end

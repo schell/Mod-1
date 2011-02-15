@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UIConnectionView.h"
 
 @interface UIModularConnectionsViewController : UIViewController {
 	UIView* _headerView;
@@ -18,8 +19,8 @@
 }
 + (UIView*)sharedWireDisplayView;
 - (UIColor*)connectionsColor;
-- (UIView*)inputViewAtIndex:(UInt32)index;
-- (UIView*)outputViewAtIndex:(UInt32)index;
+- (UIConnectionView*)inputViewAtIndex:(UInt32)index;
+- (UIConnectionView*)outputViewAtIndex:(UInt32)index;
 - (void)createView;
 @property (readwrite,retain) NSArray* connections;
 @end

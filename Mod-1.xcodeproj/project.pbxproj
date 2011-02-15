@@ -20,6 +20,9 @@
 		D147DD4D1308BEBE00891416 /* windowbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD4C1308BEBE00891416 /* windowbar.png */; };
 		D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */; };
 		D147DF5513098F7E00891416 /* UISocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DF5413098F7E00891416 /* UISocketView.m */; };
+		D147E156130A1B8800891416 /* UIConnectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E155130A1B8800891416 /* UIConnectionView.m */; };
+		D147E22B130A3EA400891416 /* UIModularUnitMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */; };
+		D147E2BD130B2C6F00891416 /* darkbarberpole.png in Resources */ = {isa = PBXBuildFile; fileRef = D147E2BC130B2C6F00891416 /* darkbarberpole.png */; };
 		D161665B12FDD5AC006286E4 /* ModularUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161665A12FDD5AC006286E4 /* ModularUnit.m */; };
 		D16166CD12FDF73A006286E4 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D16166CC12FDF73A006286E4 /* main_background.png */; };
 		D161670112FE06FA006286E4 /* ModularConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D16166FF12FE06FA006286E4 /* ModularConnection.m */; };
@@ -62,6 +65,11 @@
 		D147DE131308D20700891416 /* UIModularConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularConnectionsViewController.m; sourceTree = "<group>"; };
 		D147DF5313098F7E00891416 /* UISocketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISocketView.h; sourceTree = "<group>"; };
 		D147DF5413098F7E00891416 /* UISocketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISocketView.m; sourceTree = "<group>"; };
+		D147E154130A1B8800891416 /* UIConnectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConnectionView.h; sourceTree = "<group>"; };
+		D147E155130A1B8800891416 /* UIConnectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConnectionView.m; sourceTree = "<group>"; };
+		D147E229130A3EA400891416 /* UIModularUnitMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularUnitMenuController.h; sourceTree = "<group>"; };
+		D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularUnitMenuController.m; sourceTree = "<group>"; };
+		D147E2BC130B2C6F00891416 /* darkbarberpole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkbarberpole.png; sourceTree = "<group>"; };
 		D161665912FDD5AC006286E4 /* ModularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularUnit.h; sourceTree = "<group>"; };
 		D161665A12FDD5AC006286E4 /* ModularUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularUnit.m; sourceTree = "<group>"; };
 		D16166CC12FDF73A006286E4 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
@@ -197,7 +205,6 @@
 		D147DD121308AC6300891416 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				D147DD4C1308BEBE00891416 /* windowbar.png */,
 				D147DD291308B09600891416 /* icon.png */,
 				D147DD1B1308AD5700891416 /* speaker.png */,
 			);
@@ -209,6 +216,8 @@
 			children = (
 				D147DF5313098F7E00891416 /* UISocketView.h */,
 				D147DF5413098F7E00891416 /* UISocketView.m */,
+				D147E154130A1B8800891416 /* UIConnectionView.h */,
+				D147E155130A1B8800891416 /* UIConnectionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -219,6 +228,8 @@
 				D147DE381308D5B400891416 /* Views */,
 				D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */,
 				D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */,
+				D147E229130A3EA400891416 /* UIModularUnitMenuController.h */,
+				D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */,
 				D147DE121308D20700891416 /* UIModularConnectionsViewController.h */,
 				D147DE131308D20700891416 /* UIModularConnectionsViewController.m */,
 			);
@@ -237,6 +248,8 @@
 		D16166CB12FDF726006286E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D147DD4C1308BEBE00891416 /* windowbar.png */,
+				D147E2BC130B2C6F00891416 /* darkbarberpole.png */,
 				D147DD121308AC6300891416 /* icons */,
 				D16166CC12FDF73A006286E4 /* main_background.png */,
 			);
@@ -362,6 +375,7 @@
 				D147DD1C1308AD5700891416 /* speaker.png in Resources */,
 				D147DD2A1308B09600891416 /* icon.png in Resources */,
 				D147DD4D1308BEBE00891416 /* windowbar.png in Resources */,
+				D147E2BD130B2C6F00891416 /* darkbarberpole.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +406,8 @@
 				D1CA305713078653003C1D55 /* SquareWaveGeneratorUnit.m in Sources */,
 				D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */,
 				D147DF5513098F7E00891416 /* UISocketView.m in Sources */,
+				D147E156130A1B8800891416 /* UIConnectionView.m in Sources */,
+				D147E22B130A3EA400891416 /* UIModularUnitMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

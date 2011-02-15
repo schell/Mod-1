@@ -28,5 +28,6 @@ typedef enum {
 - (void)createView;
 - (UIImage*)icon;
 - (void)setShadowForState:(UIViewState)state;
+- (UIView*)windowBar;
 @property (readwrite,retain) ModularUnit* unit;
 @end

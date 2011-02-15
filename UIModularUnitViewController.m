@@ -84,28 +84,45 @@ static CGFloat thirdOfPortraitWidth = 0;
 	self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
 	[self setShadowForState:UIViewStateAtRest];
 	
+	UIImage* backgroundPattern = [UIImage imageNamed:@"darkbarberpole.png"];
+	if (backgroundPattern == nil) {
+		[NSException raise:@"could not get background image" format:@"unknown"];
+	}
 	_backgroundView = [[UIView alloc] initWithFrame:[self frameForBackground]];
-	_backgroundView.backgroundColor = [UIColor colorWithRed:0.12 green:0.12 blue:0.12 alpha:0.7];
+	_backgroundView.backgroundColor = [UIColor colorWithPatternImage:backgroundPattern];
 	_backgroundView.layer.cornerRadius = 8;
 	_backgroundView.layer.masksToBounds = YES;
 	[self.view addSubview:_backgroundView];
 	
-	_windowBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, 15)];
-	_windowBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"windowbar.png"]];
+	UIImage* windowBarBackground = [UIImage imageNamed:@"darkbarberpole.png"];
+	if (windowBarBackground == nil) {
+		[NSException raise:@"could not get windowbar background image" format:@"unknown"];
+	}
+	UIView* highlight = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, 1)] autorelease];
+	highlight.backgroundColor = [UIColor whiteColor];
+	highlight.alpha = 0.1;
+	_windowBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, 50)];
+	_windowBarView.backgroundColor = [UIColor colorWithPatternImage:windowBarBackground];
+	[_windowBarView addSubview:highlight];
 	[_backgroundView addSubview:_windowBarView];
 	
+	UIView* connectionsShadow = [[[UIView alloc] initWithFrame:[self frameForConnectionsTableView]] autorelease];
+	connectionsShadow.layer.shadowColor = [[UIColor blackColor] CGColor];
+	connectionsShadow.layer.shadowOpacity = 1.0f;
+	connectionsShadow.layer.shadowOffset = CGSizeMake(0, 0);
 	_connectionsController = [[UIModularConnectionsViewController alloc] init];
-	_connectionsController.view.frame = [self frameForConnectionsTableView];
+	_connectionsController.view.frame = CGRectMake(0, 0, connectionsShadow.frame.size.width, connectionsShadow.frame.size.height);
 	_connectionsController.view.backgroundColor = [UIColor whiteColor];
 	_connectionsController.view.layer.cornerRadius = 8;
 	_connectionsController.view.layer.masksToBounds = YES;
 	_connectionsController.connections = [self.unit connections];
 	[_connectionsController createView];
-	[_backgroundView addSubview:_connectionsController.view];
+	[connectionsShadow addSubview:_connectionsController.view];
+	[_backgroundView addSubview:connectionsShadow];
 	
 	_icon = [[UIImageView alloc] initWithImage:[self icon]];
 	_icon.frame = CGRectMake(10, 0, 32, 32);
-	_icon.center = CGPointMake(_icon.center.x, (15 + _connectionsController.view.frame.origin.y)/2);
+	_icon.center = CGPointMake(_icon.center.x, (connectionsShadow.frame.origin.y)/2);
 	_icon.layer.shadowColor = [[UIColor blackColor] CGColor];
 	_icon.layer.shadowOpacity = 30.0f;
 	_icon.layer.shadowRadius = 3;
@@ -115,6 +132,13 @@ static CGFloat thirdOfPortraitWidth = 0;
 
 - (CGFloat)oneThirdPortraitWidth {
 	return thirdOfPortraitWidth;
+}
+
+#pragma mark -
+#pragma mark View Access
+
+- (UIView*)windowBar {
+	return _windowBarView;
 }
 
 #pragma mark -
@@ -166,7 +190,14 @@ static CGFloat thirdOfPortraitWidth = 0;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch* tap = [touches anyObject];
+	if (self.view.frame.origin.x < 0 || self.view.frame.origin.y < 0) {
+		CGPoint point = {0};
+		point.x = self.view.frame.origin.x < 0 ? self.view.frame.size.width/2 : self.view.center.x;
+		point.y = self.view.frame.origin.y < 0 ? self.view.frame.size.height/2 : self.view.center.y;
+		[UIView animateWithDuration:0.3 animations:^{
+			self.view.center = point;
+		}];
+	}
 	_dragging = NO;
 	[self setShadowForState:UIViewStateAtRest];
 }

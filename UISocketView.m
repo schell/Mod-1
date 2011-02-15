@@ -26,38 +26,56 @@
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
-	[super drawRect:rect];
-	CGFloat xWidth = 1;
-	CGFloat innerArcLength = xWidth*M_PI/2;
-	CGFloat radius = rect.size.width/2;
-	CGFloat outerRadianOffset = innerArcLength/radius;
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetLineWidth(context, 2);
-	[socketColor setStroke];
-	[socketColor setFill];
-    // draw the socket
-	CGContextAddArc(context, radius, rect.size.height/2, radius-1, 0, 2*M_PI, YES);
-	CGContextStrokePath(context);
-	BOOL activated = self.active;
-	if (activated) {
-		CGContextMoveToPoint(context, radius, rect.size.height/2+xWidth);
-		CGContextAddArc(context, radius, rect.size.height/2, radius-3, M_PI/4+outerRadianOffset, 3*M_PI/4-outerRadianOffset, NO);
-		CGContextMoveToPoint(context, radius-xWidth, rect.size.height/2);
-		CGContextAddArc(context, radius, rect.size.height/2, radius-3, 3*M_PI/4+outerRadianOffset, 5*M_PI/4-outerRadianOffset, NO);
-		CGContextMoveToPoint(context, radius, rect.size.height/2-xWidth);
-		CGContextAddArc(context, radius, rect.size.height/2, radius-3, 5*M_PI/4+outerRadianOffset, 7*M_PI/4-outerRadianOffset, NO);
-		CGContextMoveToPoint(context, radius+xWidth, rect.size.height/2);
-		CGContextAddArc(context, radius, rect.size.height/2, radius-3, 7*M_PI/4+outerRadianOffset, M_PI/4-outerRadianOffset, NO);
-	} else {
-		CGContextAddArc(context, radius, rect.size.height/2, radius-4, 0, 2*M_PI, YES);
-	}
-	CGContextFillPath(context);
-}
-
 - (void)dealloc {
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Drawing
+
++ (void)drawOpenSocketInContext:(CGContextRef)context atPoint:(CGPoint)point withRadius:(CGFloat)radius andColor:(UIColor*)color {
+	CGContextSetLineWidth(context, 2);
+	[color setStroke];
+	[color setFill];
+	CGContextAddArc(context, point.x, point.y, radius, 0, 2*M_PI, YES);
+	CGContextStrokePath(context);
+	CGContextAddArc(context, point.x, point.y, radius-3, 0, 2*M_PI, YES);
+	CGContextFillPath(context);
+}
+
++ (void)drawClosedSocketInContext:(CGContextRef)context atPoint:(CGPoint)point withRadius:(CGFloat)radius andColor:(UIColor*)color {
+	CGFloat xWidth = 1;
+	CGFloat innerArcLength = xWidth*M_PI/2;
+	CGFloat outerRadianOffset = innerArcLength/radius;
+	CGContextSetLineWidth(context, 2);
+	[color setStroke];
+	[color setFill];
+	CGContextAddArc(context, point.x, point.y, radius, 0, 2*M_PI, YES);
+	CGContextStrokePath(context);
+	CGContextMoveToPoint(context, point.x, point.y+xWidth);
+	CGContextAddArc(context, point.x, point.y/2, radius-2, M_PI/4+outerRadianOffset, 3*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x-xWidth, point.y/2);
+	CGContextAddArc(context, point.x, point.y/2, radius-2, 3*M_PI/4+outerRadianOffset, 5*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x, point.y/2-xWidth);
+	CGContextAddArc(context, point.x, point.y/2, radius-2, 5*M_PI/4+outerRadianOffset, 7*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x+xWidth, point.y/2);
+	CGContextAddArc(context, point.x, point.y/2, radius-2, 7*M_PI/4+outerRadianOffset, M_PI/4-outerRadianOffset, NO);
+	CGContextFillPath(context);
+}
+
+- (void)drawRect:(CGRect)rect {
+	[super drawRect:rect];
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGPoint point = CGPointMake(rect.size.width/2, rect.size.height/2);
+	CGFloat radius = point.x - 1;
+	BOOL activated = self.active;
+	
+	if (activated) {
+		[UISocketView drawClosedSocketInContext:context atPoint:point withRadius:radius andColor:socketColor];
+	} else {
+		[UISocketView drawOpenSocketInContext:context atPoint:point withRadius:radius andColor:socketColor];
+	}
+	CGContextFillPath(context);
+}
 
 @end
