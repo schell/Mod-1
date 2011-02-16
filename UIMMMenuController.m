@@ -1,70 +1,42 @@
 //
-//  UIModularUnitMenuController.m
+//  UIMMMenuController.m
 //  Mod-1
 //
 //  Created by Schell Scivally on 2/14/11.
 //  Copyright 2011 Electrunique. All rights reserved.
 //
 
-#import "UIModularUnitMenuController.h"
+#import "UIMMMenuController.h"
 
-@implementation UIModularUnitMenuController
+@implementation UIMMMenuController
 
 #pragma mark -
 #pragma mark Initialization
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    self = [super initWithStyle:style];
+
+- (id)init {
+    self = [super init];
     if (self) {
-        // Custom initialization.
+		_menuTableView = nil;
     }
     return self;
 }
-*/
 
 
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark -
+#pragma mark View Creation
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (UIView*)viewForContentView {
+	if (_menuTableView == nil) {
+		_menuTableView = [[UITableView alloc] initWithFrame:[self frameForContentView]];
+		_menuTableView.backgroundColor = [UIColor greenColor];
+		_menuTableView.delegate = self;
+	}
+	return _menuTableView;
 }
-*/
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view data source
@@ -79,7 +51,6 @@
     // Return the number of rows in the section.
     return section == 0 ? 3 : 1;
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,7 +67,6 @@
     return cell;
 }
 
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,7 +74,6 @@
     return YES;
 }
 */
-
 
 /*
 // Override to support editing the table view.
@@ -120,13 +89,11 @@
 }
 */
 
-
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
 */
-
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -135,7 +102,6 @@
     return YES;
 }
 */
-
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -151,7 +117,6 @@
     */
 }
 
-
 #pragma mark -
 #pragma mark Memory management
 
@@ -162,16 +127,9 @@
     // Relinquish ownership any cached data, images, etc. that aren't in use.
 }
 
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
-
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end
 

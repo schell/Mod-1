@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RootAudioController.h"
-#import "UIModularUnitViewController.h"
-#import "UIModularUnitMenuController.h"
+#import "UIMMMenuController.h"
+#import "UIMMUnitController.h"
 
 @interface RootViewController : UIViewController {
 	RootAudioController* _rootAudioController;
-	UIModularUnitViewController* _headUnitViewController;
-	UIModularUnitMenuController* _menuController;
+	UIMMUnitController* _headUnitViewController;
+	UIMMMenuController* _menuController;
 	UITapGestureRecognizer* _twoFingerSingleTap;
 }
 + (CGSize)portraitSize;

@@ -1,5 +1,5 @@
 //
-//  UIModularConnectionsViewController.h
+//  UIMMConnectionsController.h
 //  Mod-1
 //
 //  Created by Schell Scivally on 2/13/11.
@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIConnectionView.h"
 
-@interface UIModularConnectionsViewController : UIViewController {
+@interface UIMMConnectionsController : UIViewController {
 	UIView* _headerView;
 	NSMutableArray* _inputViews;
 	NSMutableArray* _outputViews;

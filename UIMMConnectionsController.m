@@ -1,17 +1,17 @@
     //
-//  UIModularConnectionsViewController.m
+//  UIMMConnectionsController.m
 //  Mod-1
 //
 //  Created by Schell Scivally on 2/13/11.
 //  Copyright 2011 Electrunique. All rights reserved.
 //
 
-#import "UIModularConnectionsViewController.h"
+#import "UIMMConnectionsController.h"
 #import "ModularConnection.h"
 #import "UIConnectionView.h"
 #import "UISocketView.h"
 
-@implementation UIModularConnectionsViewController
+@implementation UIMMConnectionsController
 @synthesize connections;
 
 - (id)init {

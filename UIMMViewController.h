@@ -1,33 +1,36 @@
 //
-//  UIModularUnitViewController.h
+//  UIMMViewController.h
 //  Mod-1
 //
-//  Created by Schell Scivally on 2/6/11.
+//  Created by Schell Scivally on 2/15/11.
 //  Copyright 2011 Electrunique. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ModularUnit.h"
-#import "UIModularConnectionsViewController.h"
 
 typedef enum {
 	UIViewStateAtRest,
 	UIViewStateDragging
 } UIViewState;
 
-@interface UIModularUnitViewController : UIViewController {
-	ModularUnit* unit;
+@interface UIMMViewController : UIViewController {
 	UIView* _icon;
 	UIView* _backgroundView;
 	UIView* _windowBarView;
-	UIModularConnectionsViewController* _connectionsController;
+	UIView* _contentShadowView;
+	UIView* _contentView;
 	BOOL _dragging;
 	CGPoint _draggingOffset;
+	BOOL _viewCreated;
+	
 }
 - (CGFloat)oneThirdPortraitWidth;
+- (CGRect)frameForDefault;
+- (CGRect)frameForContentView;
+- (CGRect)frameForContentShadowView;
 - (void)createView;
 - (UIImage*)icon;
 - (void)setShadowForState:(UIViewState)state;
 - (UIView*)windowBar;
-@property (readwrite,retain) ModularUnit* unit;
+- (UIView*)viewForContentView;
 @end

@@ -18,18 +18,19 @@
 		D147DD1C1308AD5700891416 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD1B1308AD5700891416 /* speaker.png */; };
 		D147DD2A1308B09600891416 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD291308B09600891416 /* icon.png */; };
 		D147DD4D1308BEBE00891416 /* windowbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D147DD4C1308BEBE00891416 /* windowbar.png */; };
-		D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DE131308D20700891416 /* UIModularConnectionsViewController.m */; };
+		D147DE141308D20700891416 /* UIMMConnectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DE131308D20700891416 /* UIMMConnectionsController.m */; };
 		D147DF5513098F7E00891416 /* UISocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = D147DF5413098F7E00891416 /* UISocketView.m */; };
 		D147E156130A1B8800891416 /* UIConnectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E155130A1B8800891416 /* UIConnectionView.m */; };
-		D147E22B130A3EA400891416 /* UIModularUnitMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */; };
+		D147E22B130A3EA400891416 /* UIMMMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E22A130A3EA400891416 /* UIMMMenuController.m */; };
 		D147E2BD130B2C6F00891416 /* darkbarberpole.png in Resources */ = {isa = PBXBuildFile; fileRef = D147E2BC130B2C6F00891416 /* darkbarberpole.png */; };
+		D147E44E130B7BF500891416 /* UIMMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D147E44D130B7BF500891416 /* UIMMViewController.m */; };
 		D161665B12FDD5AC006286E4 /* ModularUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161665A12FDD5AC006286E4 /* ModularUnit.m */; };
 		D16166CD12FDF73A006286E4 /* main_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D16166CC12FDF73A006286E4 /* main_background.png */; };
 		D161670112FE06FA006286E4 /* ModularConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D16166FF12FE06FA006286E4 /* ModularConnection.m */; };
 		D16167A912FE204B006286E4 /* CommonAudioOps.m in Sources */ = {isa = PBXBuildFile; fileRef = D16167A812FE204B006286E4 /* CommonAudioOps.m */; };
 		D1616A0012FF5DE8006286E4 /* NoiseGeneratorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D16169FF12FF5DE8006286E4 /* NoiseGeneratorUnit.m */; };
 		D1616A2112FF6639006286E4 /* HeadUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616A2012FF6639006286E4 /* HeadUnit.m */; };
-		D1616AD312FF7741006286E4 /* UIModularUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */; };
+		D1616AD312FF7741006286E4 /* UIMMUnitController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AD212FF7741006286E4 /* UIMMUnitController.m */; };
 		D1616AED12FF7B34006286E4 /* UIViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */; };
 		D1616B3112FF8C50006286E4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1616B3012FF8C50006286E4 /* QuartzCore.framework */; };
 		D1790B0F12F48EC2001E1DCE /* Mod1Graph.m in Sources */ = {isa = PBXBuildFile; fileRef = D1790B0E12F48EC2001E1DCE /* Mod1Graph.m */; };
@@ -61,15 +62,17 @@
 		D147DD1B1308AD5700891416 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		D147DD291308B09600891416 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D147DD4C1308BEBE00891416 /* windowbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windowbar.png; sourceTree = "<group>"; };
-		D147DE121308D20700891416 /* UIModularConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularConnectionsViewController.h; sourceTree = "<group>"; };
-		D147DE131308D20700891416 /* UIModularConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularConnectionsViewController.m; sourceTree = "<group>"; };
+		D147DE121308D20700891416 /* UIMMConnectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMConnectionsController.h; sourceTree = "<group>"; };
+		D147DE131308D20700891416 /* UIMMConnectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMConnectionsController.m; sourceTree = "<group>"; };
 		D147DF5313098F7E00891416 /* UISocketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISocketView.h; sourceTree = "<group>"; };
 		D147DF5413098F7E00891416 /* UISocketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISocketView.m; sourceTree = "<group>"; };
 		D147E154130A1B8800891416 /* UIConnectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConnectionView.h; sourceTree = "<group>"; };
 		D147E155130A1B8800891416 /* UIConnectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConnectionView.m; sourceTree = "<group>"; };
-		D147E229130A3EA400891416 /* UIModularUnitMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularUnitMenuController.h; sourceTree = "<group>"; };
-		D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularUnitMenuController.m; sourceTree = "<group>"; };
+		D147E229130A3EA400891416 /* UIMMMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMMenuController.h; sourceTree = "<group>"; };
+		D147E22A130A3EA400891416 /* UIMMMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMMenuController.m; sourceTree = "<group>"; };
 		D147E2BC130B2C6F00891416 /* darkbarberpole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkbarberpole.png; sourceTree = "<group>"; };
+		D147E44C130B7BF500891416 /* UIMMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMViewController.h; sourceTree = "<group>"; };
+		D147E44D130B7BF500891416 /* UIMMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMViewController.m; sourceTree = "<group>"; };
 		D161665912FDD5AC006286E4 /* ModularUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularUnit.h; sourceTree = "<group>"; };
 		D161665A12FDD5AC006286E4 /* ModularUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularUnit.m; sourceTree = "<group>"; };
 		D16166CC12FDF73A006286E4 /* main_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_background.png; sourceTree = "<group>"; };
@@ -85,8 +88,8 @@
 		D1616A2012FF6639006286E4 /* HeadUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadUnit.m; sourceTree = "<group>"; };
 		D1616A3912FF6764006286E4 /* GainUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GainUnit.h; sourceTree = "<group>"; };
 		D1616A3A12FF6764006286E4 /* GainUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GainUnit.m; sourceTree = "<group>"; };
-		D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIModularUnitViewController.h; sourceTree = "<group>"; };
-		D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIModularUnitViewController.m; sourceTree = "<group>"; };
+		D1616AD112FF7741006286E4 /* UIMMUnitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMUnitController.h; sourceTree = "<group>"; };
+		D1616AD212FF7741006286E4 /* UIMMUnitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMUnitController.m; sourceTree = "<group>"; };
 		D1616AEB12FF7B34006286E4 /* UIViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Layout.h"; sourceTree = "<group>"; };
 		D1616AEC12FF7B34006286E4 /* UIViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Layout.m"; sourceTree = "<group>"; };
 		D1616B3012FF8C50006286E4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -226,12 +229,14 @@
 			isa = PBXGroup;
 			children = (
 				D147DE381308D5B400891416 /* Views */,
-				D1616AD112FF7741006286E4 /* UIModularUnitViewController.h */,
-				D1616AD212FF7741006286E4 /* UIModularUnitViewController.m */,
-				D147E229130A3EA400891416 /* UIModularUnitMenuController.h */,
-				D147E22A130A3EA400891416 /* UIModularUnitMenuController.m */,
-				D147DE121308D20700891416 /* UIModularConnectionsViewController.h */,
-				D147DE131308D20700891416 /* UIModularConnectionsViewController.m */,
+				D147E44C130B7BF500891416 /* UIMMViewController.h */,
+				D147E44D130B7BF500891416 /* UIMMViewController.m */,
+				D1616AD112FF7741006286E4 /* UIMMUnitController.h */,
+				D1616AD212FF7741006286E4 /* UIMMUnitController.m */,
+				D147E229130A3EA400891416 /* UIMMMenuController.h */,
+				D147E22A130A3EA400891416 /* UIMMMenuController.m */,
+				D147DE121308D20700891416 /* UIMMConnectionsController.h */,
+				D147DE131308D20700891416 /* UIMMConnectionsController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -398,16 +403,17 @@
 				D16167A912FE204B006286E4 /* CommonAudioOps.m in Sources */,
 				D1616A0012FF5DE8006286E4 /* NoiseGeneratorUnit.m in Sources */,
 				D1616A2112FF6639006286E4 /* HeadUnit.m in Sources */,
-				D1616AD312FF7741006286E4 /* UIModularUnitViewController.m in Sources */,
+				D1616AD312FF7741006286E4 /* UIMMUnitController.m in Sources */,
 				D1616AED12FF7B34006286E4 /* UIViewController+Layout.m in Sources */,
 				D195F49D1307525900126ADC /* SampleBuffer.m in Sources */,
 				D195F4CD1307592B00126ADC /* SineWaveGeneratorUnit.m in Sources */,
 				D195F4CE1307592E00126ADC /* GainUnit.m in Sources */,
 				D1CA305713078653003C1D55 /* SquareWaveGeneratorUnit.m in Sources */,
-				D147DE141308D20700891416 /* UIModularConnectionsViewController.m in Sources */,
+				D147DE141308D20700891416 /* UIMMConnectionsController.m in Sources */,
 				D147DF5513098F7E00891416 /* UISocketView.m in Sources */,
 				D147E156130A1B8800891416 /* UIConnectionView.m in Sources */,
-				D147E22B130A3EA400891416 /* UIModularUnitMenuController.m in Sources */,
+				D147E22B130A3EA400891416 /* UIMMMenuController.m in Sources */,
+				D147E44E130B7BF500891416 /* UIMMViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,8 @@
 
 #import "RootViewController.h"
 #import "UIViewController+Layout.h"
-#import "UIModularConnectionsViewController.h"
-#import "UIModularUnitMenuController.h"
+#import "UIMMConnectionsController.h"
+#import "UIMMMenuController.h"
 
 @implementation RootViewController
 
@@ -49,7 +49,7 @@
 	NSLog(@"%s",__FUNCTION__);
 	self.view.backgroundColor = [UIColor clearColor];
 	if (![[self.view subviews] count]) {
-		_headUnitViewController = [[UIModularUnitViewController alloc] init];
+		_headUnitViewController = [[UIMMUnitController alloc] init];
 		_headUnitViewController.unit = [_rootAudioController mainGraph].headUnit;
 		[_headUnitViewController createView];
 		[self.view addSubview:_headUnitViewController.view];
@@ -57,7 +57,7 @@
 		frame.origin = CGPointMake(100, 100);
 		_headUnitViewController.view.frame = frame;
 		// add the shared wire view
-		[self.view addSubview:[UIModularConnectionsViewController sharedWireDisplayView]];
+		[self.view addSubview:[UIMMConnectionsController sharedWireDisplayView]];
 		// add a two finger single tap recognizer
 		_twoFingerSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTapWithTwoFingers:)];
 		_twoFingerSingleTap.numberOfTouchesRequired = 2;
@@ -90,7 +90,7 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	NSLog(@"%s",__FUNCTION__);
 	CGRect viewFrame = [self viewFrameWithOrientation:toInterfaceOrientation];
-	[UIModularConnectionsViewController sharedWireDisplayView].frame = viewFrame;
+	[UIMMConnectionsController sharedWireDisplayView].frame = viewFrame;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -144,13 +144,13 @@
 	NSLog(@"%s",__FUNCTION__);
 	CGPoint loc = [tap locationInView:self.view];
 	if (_menuController == nil) {
-		_menuController = [[UIModularUnitMenuController alloc] init];
-		_menuController.tableView.backgroundColor = [UIColor whiteColor];
-		_menuController.tableView.frame = CGRectMake(0, 0, [_headUnitViewController oneThirdPortraitWidth], [_headUnitViewController oneThirdPortraitWidth]);
-		
+		_menuController = [[UIMMMenuController alloc] init];
+		_menuController.view.backgroundColor = [UIColor whiteColor];
+		_menuController.view.frame = CGRectMake(0, 0, [_headUnitViewController oneThirdPortraitWidth], [_headUnitViewController oneThirdPortraitWidth]);
+		[_menuController createView];
 	}
-	_menuController.tableView.center = loc;
-	[self.view addSubview:_menuController.tableView];
+	_menuController.view.center = loc;
+	[self.view addSubview:_menuController.view];
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
