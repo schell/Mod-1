@@ -13,13 +13,17 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "SampleBuffer.h"
+#import "ModularInput.h"
+#import "ModularOutput.h"
 
-@class ModularConnection;
-
-@interface ModularUnit : NSObject {}
+@interface ModularUnit : NSObject {
+	ModularInput* input;
+	ModularOutput* output;
+}
 - (BOOL)initializeConnections;
 - (BOOL)fillBuffer:(SampleBuffer*)buffer;
 - (NSArray*)connections;
-@property (readwrite,retain) ModularConnection* input;
-@property (readwrite,retain) ModularConnection* output;
+- (ModularInput*)input;
+- (ModularOutput*)output;
+- (BOOL)disconnect:(ModularConnection*)connection;
 @end

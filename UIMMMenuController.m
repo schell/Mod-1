@@ -7,8 +7,18 @@
 //
 
 #import "UIMMMenuController.h"
+#import "UIMMSineWaveController.h"
+#import "UIMMSquareWaveController.h"
+#import "UIMMWhiteNoiseController.h"
+#import "UIMMGainController.h"
+#import "NoiseGeneratorUnit.h"
+#import "SineWaveGeneratorUnit.h"
+#import "SquareWaveGeneratorUnit.h"
+#import "NoiseGeneratorUnit.h"
+#import "GainUnit.h"
 
 @implementation UIMMMenuController
+@synthesize unitSelectedBlock;
 
 #pragma mark -
 #pragma mark Initialization
@@ -18,13 +28,21 @@
     self = [super init];
     if (self) {
 		_menuTableView = nil;
+		unitSelectedBlock = nil;
     }
     return self;
 }
 
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
 
-#pragma mark -
-#pragma mark View lifecycle
+- (void)dealloc {
+    [super dealloc];
+}
 
 #pragma mark -
 #pragma mark View Creation
@@ -32,10 +50,15 @@
 - (UIView*)viewForContentView {
 	if (_menuTableView == nil) {
 		_menuTableView = [[UITableView alloc] initWithFrame:[self frameForContentView]];
-		_menuTableView.backgroundColor = [UIColor greenColor];
+		_menuTableView.backgroundColor = [UIColor whiteColor];
 		_menuTableView.delegate = self;
+		_menuTableView.dataSource = self;
 	}
 	return _menuTableView;
+}
+
+- (NSString*)stringForLabelTitle {
+	return @"Creation Menu";
 }
 
 #pragma mark -
@@ -46,10 +69,40 @@
     return 2;
 }
 
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+//	return [NSArray arrayWithObjects:@"Generators",@"Filters",@"Accumulators",@"Controllers",nil];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return section == 0 ? 3 : 1;
+    switch (section) {
+		case 0:
+			return 3;
+		case 1:
+			return 1;
+		case 2:
+			return 0;
+		case 3:
+			return 0;
+		default:
+			break;
+	}
+	return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	switch (section) {
+		case 0:
+			return @"Generators";
+		case 1:
+			return @"Filters";
+		case 2:
+			return @"Accumulators";
+		case 3:
+			return @"Controllers";
+		default:
+			return @"Other";
+	}
 }
 
 // Customize the appearance of table view cells.
@@ -61,74 +114,90 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
+	
+	cell.textLabel.textColor = [UIColor darkGrayColor];
+	cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	
+	switch ([indexPath section]) {
+		case 0:
+			switch ([indexPath row]) {
+				case 0:
+					cell.textLabel.text = @"Sine Wave";
+					break;
+				case 1:
+					cell.textLabel.text = @"Square Wave";
+					break;
+					
+				case 2:
+					cell.textLabel.text = @"White Noise";
+					break;
+				default:
+					break;
+			}
+			break;
+		case 1:
+			switch ([indexPath row]) {
+				case 0:
+					cell.textLabel.text = @"Gain";
+					break;
+				default:
+					break;
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+	}
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-    */
-}
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
-
-- (void)dealloc {
-    [super dealloc];
+    UIMMUnitController* unitController = nil;
+	
+	switch ([indexPath section]) {
+		case 0: // Generators
+			switch ([indexPath row]) {
+				case 0: // sine
+					unitController = [[[UIMMSineWaveController alloc] init] autorelease];
+					unitController.unit = [[[SineWaveGeneratorUnit alloc] init] autorelease];
+					break;
+				case 1: // square
+					unitController = [[[UIMMSquareWaveController alloc] init] autorelease];
+					unitController.unit = [[[SquareWaveGeneratorUnit alloc] init] autorelease];
+					break;
+				case 2: // noise
+					unitController = [[[UIMMWhiteNoiseController alloc] init] autorelease];
+					unitController.unit = [[[NoiseGeneratorUnit alloc] init] autorelease];
+					break;
+				default:
+					break;
+			}
+			break;
+		case 1:
+			switch ([indexPath row]) {
+				case 0: // gain
+					unitController = [[[UIMMGainController alloc] init] autorelease];
+					unitController.unit = [[[GainUnit alloc] init] autorelease];
+					break;
+				default:
+					break;
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+	}
+	
+	if (unitController != nil && unitSelectedBlock != nil) {
+		unitSelectedBlock(unitController);
+	}
 }
 
 @end

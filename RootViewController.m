@@ -22,6 +22,7 @@
 - (id)init {
 	self = [super init];
 	_rootAudioController = [[RootAudioController alloc] init];
+	_unitControllers = nil;
 	return self;
 }
 
@@ -49,21 +50,24 @@
 	NSLog(@"%s",__FUNCTION__);
 	self.view.backgroundColor = [UIColor clearColor];
 	if (![[self.view subviews] count]) {
-		_headUnitViewController = [[UIMMUnitController alloc] init];
+		_unitViews = [[UIView alloc] initWithFrame:[self viewFrameWithOrientation:self.interfaceOrientation]];
+		_headUnitViewController = [[UIMMHeadUnitController alloc] init];
 		_headUnitViewController.unit = [_rootAudioController mainGraph].headUnit;
 		[_headUnitViewController createView];
-		[self.view addSubview:_headUnitViewController.view];
+		
 		CGRect frame = _headUnitViewController.view.frame;
-		frame.origin = CGPointMake(100, 100);
+		frame.origin = CGPointMake(10, 10);
 		_headUnitViewController.view.frame = frame;
-		// add the shared wire view
-		[self.view addSubview:[UIMMConnectionsController sharedWireDisplayView]];
+		
 		// add a two finger single tap recognizer
 		_twoFingerSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTapWithTwoFingers:)];
 		_twoFingerSingleTap.numberOfTouchesRequired = 2;
 		[self.view addGestureRecognizer:_twoFingerSingleTap];
+		
+		[_unitViews addSubview:_headUnitViewController.view];
+		[self.view addSubview:_unitViews];
+		[self.view addSubview:[UIMMConnectionsController sharedWireDisplayView]];
 	}
-	[_rootAudioController mainGraph].headUnit.defaultGain = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -90,6 +94,7 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	NSLog(@"%s",__FUNCTION__);
 	CGRect viewFrame = [self viewFrameWithOrientation:toInterfaceOrientation];
+	_unitViews.frame = viewFrame;
 	[UIMMConnectionsController sharedWireDisplayView].frame = viewFrame;
 }
 
@@ -148,20 +153,30 @@
 		_menuController.view.backgroundColor = [UIColor whiteColor];
 		_menuController.view.frame = CGRectMake(0, 0, [_headUnitViewController oneThirdPortraitWidth], [_headUnitViewController oneThirdPortraitWidth]);
 		[_menuController createView];
+		[_menuController setUnitSelectedBlock:^(UIMMUnitController* unitController){
+			if (_unitControllers == nil) {
+				_unitControllers = [[NSMutableSet alloc] init];
+			}
+			[unitController createView];
+			unitController.view.center = _menuController.view.center;
+			unitController.view.alpha = 0;
+			[_unitControllers addObject:unitController];
+			[_unitViews addSubview:unitController.view];
+			[UIView animateWithDuration:0.2 
+							 animations:^{
+								 unitController.view.alpha = 1;
+								 _menuController.view.alpha = 0;
+							 }
+							 completion:^(BOOL finished){
+								 [_menuController.view removeFromSuperview];
+								 [_menuController release]; _menuController = nil;
+							 }
+			 ];
+		}];
 	}
 	_menuController.view.center = loc;
-	[self.view addSubview:_menuController.view];
+	[_unitViews addSubview:_menuController.view];
 }
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//
-//}
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//}
 
 #pragma mark -
 #pragma mark Config

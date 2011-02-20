@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UIMMViewController.h"
+#import "UIMMUnitController.h"
 
-@interface UIMMMenuController : UIMMViewController <UITableViewDelegate> {
+@interface UIMMMenuController : UIMMViewController <UITableViewDelegate,UITableViewDataSource> {
 	UITableView* _menuTableView;
 }
-
+@property (readwrite,copy) void (^unitSelectedBlock)(UIMMUnitController*);
 @end

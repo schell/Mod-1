@@ -15,7 +15,14 @@
 #pragma mark Connections
 
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.input,nil];
+	return [NSArray arrayWithObjects:[self input],nil];
+}
+
+#pragma mark -
+#pragma mark Details
+
+- (NSString*)description {
+	return @"HeadUnit";
 }
 
 @end

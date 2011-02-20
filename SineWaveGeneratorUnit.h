@@ -14,8 +14,8 @@
 
 @interface SineWaveGeneratorUnit : ModularUnit {
 	CGFloat phase;
+	ModularInput* frequency;
+	ModularInput* amplitude;
+	ModularInput* phaseDifference;
 }
-@property (readwrite,retain) ModularConnection* frequency;
-@property (readwrite,retain) ModularConnection* amplitude;
-@property (readwrite,retain) ModularConnection* phaseDifference;
 @end

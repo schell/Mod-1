@@ -38,6 +38,14 @@
 		D195F49D1307525900126ADC /* SampleBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D195F49C1307525900126ADC /* SampleBuffer.m */; };
 		D195F4CD1307592B00126ADC /* SineWaveGeneratorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D161676912FE1347006286E4 /* SineWaveGeneratorUnit.m */; };
 		D195F4CE1307592E00126ADC /* GainUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1616A3A12FF6764006286E4 /* GainUnit.m */; };
+		D196404A130E28A00012ACB6 /* UIMMHeadUnitController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1964049130E28A00012ACB6 /* UIMMHeadUnitController.m */; };
+		D19640C2130E33EE0012ACB6 /* UIMMSineWaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19640C1130E33EE0012ACB6 /* UIMMSineWaveController.m */; };
+		D1964189130EDBBB0012ACB6 /* UIMMSquareWaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1964188130EDBBB0012ACB6 /* UIMMSquareWaveController.m */; };
+		D196418C130EDC040012ACB6 /* UIMMWhiteNoiseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D196418B130EDC040012ACB6 /* UIMMWhiteNoiseController.m */; };
+		D19642C9130F43E50012ACB6 /* UIMMGainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19642C8130F43E50012ACB6 /* UIMMGainController.m */; };
+		D1964395130F7B140012ACB6 /* UIWiresView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1964394130F7B140012ACB6 /* UIWiresView.m */; };
+		D19646891311A7B60012ACB6 /* ModularInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D19646881311A7B60012ACB6 /* ModularInput.m */; };
+		D196468C1311A90D0012ACB6 /* ModularOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D196468B1311A90D0012ACB6 /* ModularOutput.m */; };
 		D1CA305713078653003C1D55 /* SquareWaveGeneratorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CA305613078653003C1D55 /* SquareWaveGeneratorUnit.m */; };
 		D1D5416012EFF1DF008235F3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D5415F12EFF1DF008235F3 /* RootViewController.m */; };
 		D1D5417112EFF61A008235F3 /* RootAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D5417012EFF61A008235F3 /* RootAudioController.m */; };
@@ -99,6 +107,22 @@
 		D1790B4B12F5FF3B001E1DCE /* SineWaveGenerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SineWaveGenerator.c; sourceTree = "<group>"; };
 		D195F49B1307525900126ADC /* SampleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleBuffer.h; sourceTree = "<group>"; };
 		D195F49C1307525900126ADC /* SampleBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleBuffer.m; sourceTree = "<group>"; };
+		D1964048130E28A00012ACB6 /* UIMMHeadUnitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMHeadUnitController.h; sourceTree = "<group>"; };
+		D1964049130E28A00012ACB6 /* UIMMHeadUnitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMHeadUnitController.m; sourceTree = "<group>"; };
+		D19640C0130E33EE0012ACB6 /* UIMMSineWaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMSineWaveController.h; sourceTree = "<group>"; };
+		D19640C1130E33EE0012ACB6 /* UIMMSineWaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMSineWaveController.m; sourceTree = "<group>"; };
+		D1964187130EDBBB0012ACB6 /* UIMMSquareWaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMSquareWaveController.h; sourceTree = "<group>"; };
+		D1964188130EDBBB0012ACB6 /* UIMMSquareWaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMSquareWaveController.m; sourceTree = "<group>"; };
+		D196418A130EDC040012ACB6 /* UIMMWhiteNoiseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMWhiteNoiseController.h; sourceTree = "<group>"; };
+		D196418B130EDC040012ACB6 /* UIMMWhiteNoiseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMWhiteNoiseController.m; sourceTree = "<group>"; };
+		D19642C7130F43E50012ACB6 /* UIMMGainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMMGainController.h; sourceTree = "<group>"; };
+		D19642C8130F43E50012ACB6 /* UIMMGainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMMGainController.m; sourceTree = "<group>"; };
+		D1964393130F7B140012ACB6 /* UIWiresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWiresView.h; sourceTree = "<group>"; };
+		D1964394130F7B140012ACB6 /* UIWiresView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWiresView.m; sourceTree = "<group>"; };
+		D19646871311A7B60012ACB6 /* ModularInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularInput.h; sourceTree = "<group>"; };
+		D19646881311A7B60012ACB6 /* ModularInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularInput.m; sourceTree = "<group>"; };
+		D196468A1311A90D0012ACB6 /* ModularOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModularOutput.h; sourceTree = "<group>"; };
+		D196468B1311A90D0012ACB6 /* ModularOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModularOutput.m; sourceTree = "<group>"; };
 		D1CA305513078653003C1D55 /* SquareWaveGeneratorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareWaveGeneratorUnit.h; sourceTree = "<group>"; };
 		D1CA305613078653003C1D55 /* SquareWaveGeneratorUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareWaveGeneratorUnit.m; sourceTree = "<group>"; };
 		D1D5415E12EFF1DF008235F3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -221,6 +245,8 @@
 				D147DF5413098F7E00891416 /* UISocketView.m */,
 				D147E154130A1B8800891416 /* UIConnectionView.h */,
 				D147E155130A1B8800891416 /* UIConnectionView.m */,
+				D1964393130F7B140012ACB6 /* UIWiresView.h */,
+				D1964394130F7B140012ACB6 /* UIWiresView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -229,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				D147DE381308D5B400891416 /* Views */,
+				D1964046130E287B0012ACB6 /* Unit Controllers */,
 				D147E44C130B7BF500891416 /* UIMMViewController.h */,
 				D147E44D130B7BF500891416 /* UIMMViewController.m */,
 				D1616AD112FF7741006286E4 /* UIMMUnitController.h */,
@@ -301,10 +328,39 @@
 				D1616A2012FF6639006286E4 /* HeadUnit.m */,
 				D161665912FDD5AC006286E4 /* ModularUnit.h */,
 				D161665A12FDD5AC006286E4 /* ModularUnit.m */,
-				D161670012FE06FA006286E4 /* ModularConnection.h */,
-				D16166FF12FE06FA006286E4 /* ModularConnection.m */,
+				D19646861311A7A40012ACB6 /* Connections */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		D1964046130E287B0012ACB6 /* Unit Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1964048130E28A00012ACB6 /* UIMMHeadUnitController.h */,
+				D1964049130E28A00012ACB6 /* UIMMHeadUnitController.m */,
+				D19640C0130E33EE0012ACB6 /* UIMMSineWaveController.h */,
+				D19640C1130E33EE0012ACB6 /* UIMMSineWaveController.m */,
+				D1964187130EDBBB0012ACB6 /* UIMMSquareWaveController.h */,
+				D1964188130EDBBB0012ACB6 /* UIMMSquareWaveController.m */,
+				D196418A130EDC040012ACB6 /* UIMMWhiteNoiseController.h */,
+				D196418B130EDC040012ACB6 /* UIMMWhiteNoiseController.m */,
+				D19642C7130F43E50012ACB6 /* UIMMGainController.h */,
+				D19642C8130F43E50012ACB6 /* UIMMGainController.m */,
+			);
+			name = "Unit Controllers";
+			sourceTree = "<group>";
+		};
+		D19646861311A7A40012ACB6 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				D161670012FE06FA006286E4 /* ModularConnection.h */,
+				D16166FF12FE06FA006286E4 /* ModularConnection.m */,
+				D19646871311A7B60012ACB6 /* ModularInput.h */,
+				D19646881311A7B60012ACB6 /* ModularInput.m */,
+				D196468A1311A90D0012ACB6 /* ModularOutput.h */,
+				D196468B1311A90D0012ACB6 /* ModularOutput.m */,
+			);
+			name = Connections;
 			sourceTree = "<group>";
 		};
 		D1D5416D12EFF5FB008235F3 /* Audio */ = {
@@ -414,6 +470,14 @@
 				D147E156130A1B8800891416 /* UIConnectionView.m in Sources */,
 				D147E22B130A3EA400891416 /* UIMMMenuController.m in Sources */,
 				D147E44E130B7BF500891416 /* UIMMViewController.m in Sources */,
+				D196404A130E28A00012ACB6 /* UIMMHeadUnitController.m in Sources */,
+				D19640C2130E33EE0012ACB6 /* UIMMSineWaveController.m in Sources */,
+				D1964189130EDBBB0012ACB6 /* UIMMSquareWaveController.m in Sources */,
+				D196418C130EDC040012ACB6 /* UIMMWhiteNoiseController.m in Sources */,
+				D19642C9130F43E50012ACB6 /* UIMMGainController.m in Sources */,
+				D1964395130F7B140012ACB6 /* UIWiresView.m in Sources */,
+				D19646891311A7B60012ACB6 /* ModularInput.m in Sources */,
+				D196468C1311A90D0012ACB6 /* ModularOutput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +521,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -472,7 +536,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

@@ -51,15 +51,6 @@ static OSStatus render(void*						inRefCon,
 	self = [super init];
 	
 	headUnit = [[HeadUnit alloc] init];
-	ModularUnit* unit;
-	SineWaveGeneratorUnit* sineUnit = [[[SineWaveGeneratorUnit alloc] init] autorelease];
-	SquareWaveGeneratorUnit* squareUnit = [[[SquareWaveGeneratorUnit alloc] init] autorelease];
-	NoiseGeneratorUnit* noiseUnit = [[[NoiseGeneratorUnit alloc] init] autorelease];
-	
-	unit = noiseUnit;
-	
-	headUnit.input.inputUnit = unit;
-	unit.output.outputUnit = headUnit;
 	
 	[self setupDataFormat];
 	

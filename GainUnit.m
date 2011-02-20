@@ -7,6 +7,8 @@
 //
 
 #import "GainUnit.h"
+#import "ModularInput.h"
+#import "ModularOutput.h"
 
 @implementation GainUnit
 @synthesize defaultGain;
@@ -17,7 +19,6 @@
 - (id)init {
 	self = [super init];
 	self.defaultGain = 0.5;
-	NSLog(@"%s %f",__FUNCTION__,scale_unit2float(defaultGain));
 	return self;
 }
 
@@ -31,7 +32,14 @@
 }
 
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.input,self.output,nil];
+	return [NSArray arrayWithObjects:[self input],[self output],nil];
+}
+
+#pragma mark -
+#pragma mark Details
+
+- (NSString*)description {
+	return @"GainUnit";
 }
 
 #pragma mark -
@@ -39,8 +47,8 @@
 
 - (BOOL)fillBuffer:(SampleBuffer*)buffer {
 	// default behaviour is to passthrough if input available, else render silence...
-	if (self.input.inputUnit != nil) {
-		[self.input.inputUnit fillBuffer:buffer];
+	if ([self input].remoteUnit != nil) {
+		[[self input].remoteUnit fillBuffer:buffer];
 		for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {
 			buffer.leftChannel[i] *= self.defaultGain;
 			if (buffer.isStereo) {

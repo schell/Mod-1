@@ -7,16 +7,18 @@
 //
 
 #import "UIConnectionView.h"
-
+#import "UIMMConnectionsController.h"
 
 @implementation UIConnectionView
-@synthesize socketView,label;
+@synthesize socketView,label,connectionType,index,wiredConnectionView,controller;
 
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code.
+		connectionType = ModularConnectionTypeNone;
+		index = UINT32_MAX;
     }
     return self;
 }

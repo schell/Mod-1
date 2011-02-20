@@ -36,6 +36,7 @@
 
 
 - (void)dealloc {
+	[_connectionsController destroy];
 	[_connectionsController release];
     [super dealloc];
 }
@@ -56,7 +57,6 @@
 	if (_connectionsController == nil) {
 		_connectionsController = [[UIMMConnectionsController alloc] init];
 	}
-	_connectionsController = [[UIMMConnectionsController alloc] init];
 	_connectionsController.view.frame = [self frameForContentView];
 	_connectionsController.view.backgroundColor = [UIColor whiteColor];
 	_connectionsController.view.layer.cornerRadius = 8;

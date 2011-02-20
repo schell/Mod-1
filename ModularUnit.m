@@ -8,11 +8,9 @@
 
 #import <AudioUnit/AudioUnit.h>
 #import "ModularUnit.h"
-#import "ModularConnection.h"
 #import "CommonAudioOps.h"
 
 @implementation ModularUnit
-@synthesize input,output;
 
 #pragma mark -
 #pragma mark Lifecycle
@@ -28,28 +26,70 @@
 }
 
 - (void)dealloc {
-	self.input = nil;
-	self.output = nil;
+	input.remoteUnit = nil;
+	output.remoteUnit = nil;
+	[input release];
+	[output release];
 	[super dealloc];
 }
 
 #pragma mark -
-#pragma mark Data Format
+#pragma mark Details
+
+- (NSString*)description {
+	return @"ModularUnit";
+}
 
 #pragma mark -
 #pragma mark Connections
 
 - (BOOL)initializeConnections {
 	NSLog(@"%s",__FUNCTION__);
-	self.input = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"input"];
-	self.input.outputUnit = self;
-	self.output = [[ModularConnection alloc] initWithType:ModularConnectionTypeOutput andName:@"output"];
-	self.output.inputUnit = self;
+	input = [[ModularInput alloc] initWithLocalUnit:self andName:@"input"];
+	output = [[ModularOutput alloc] initWithLocalUnit:self andName:@"output"];
 	return YES;
 }
 
+- (ModularInput*)input {
+	return input;
+}
+
+- (ModularOutput*)output {
+	return output;
+}
+
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.input,self.output,nil];
+	return [NSArray arrayWithObjects:[self input],[self output],nil];
+}
+
+- (BOOL)disconnect:(ModularConnection *)connection {
+	NSLog(@"%s",__FUNCTION__);
+	ModularConnection* selectedConnection = nil;
+	for (ModularConnection* possibleMatch in [self connections]) {
+		if (possibleMatch == connection) {
+			selectedConnection = possibleMatch;
+			break;
+		}
+	}
+	if (selectedConnection == nil) {
+		// could not find connection
+		return NO;
+	}
+	switch ([selectedConnection type]) {
+		case ModularConnectionTypeInput: {
+			[(ModularInput*)selectedConnection disconnect];
+			assert(((ModularInput*)selectedConnection).remoteUnit == nil);
+			break;
+		}
+		case ModularConnectionTypeOutput: {
+			[(ModularOutput*)selectedConnection disconnect];
+			assert(((ModularOutput*)selectedConnection).remoteUnit == nil);
+			break;
+		}
+		default:
+			return NO;
+	}
+	return YES;
 }
 
 #pragma mark -
@@ -58,9 +98,9 @@
 - (BOOL)fillBuffer:(SampleBuffer*)buffer {
 	// default behaviour is to passthrough if input available, else render silence...
 
-	if (self.input.inputUnit != nil) {
+	if ([self input] != nil && [self input].remoteUnit != nil) {
 		// pass through
-		[self.input.inputUnit fillBuffer:buffer];
+		[[self input].remoteUnit fillBuffer:buffer];
 	} else {
 		// silence
 		for (UInt32 i = 0; i < buffer.numberOfFrames; i++) {

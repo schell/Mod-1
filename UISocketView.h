@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UISocketView : UIView {}
++ (void)drawOpenSocketInContext:(CGContextRef)context atPoint:(CGPoint)point withRadius:(CGFloat)radius andColor:(UIColor*)color;
++ (void)drawClosedSocketInContext:(CGContextRef)context atPoint:(CGPoint)point withRadius:(CGFloat)radius andColor:(UIColor*)color;
 @property (readwrite,assign) BOOL active;
 @property (readwrite,retain) UIColor* socketColor;
 @property (readwrite,retain) UIColor* wireColor;

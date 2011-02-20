@@ -16,15 +16,13 @@
 #pragma mark Connections
 
 - (BOOL)initializeConnections {
-	NSLog(@"%s",__FUNCTION__);
-	self.input = nil;
-	self.output = [[ModularConnection alloc] initWithType:ModularConnectionTypeOutput andName:@"output"];
-	self.output.inputUnit = self;
+	[super initializeConnections];
+	input = nil;
 	return YES;
 }
 
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.output,nil];
+	return [NSArray arrayWithObjects:output,nil];
 }
 
 #pragma mark -
@@ -67,4 +65,12 @@ static bool mod = 0;
 	}
 	return YES;
 }
+
+#pragma mark -
+#pragma mark Details
+
+- (NSString*)description {
+	return @"NoiseGeneratorUnit";
+}
+
 @end

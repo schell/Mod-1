@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ModularUnit.h"
-#import "ModularConnection.h"
-#import "CommonAudioOps.h"
 
 @interface GainUnit : ModularUnit {}
 @property (readwrite) CGFloat defaultGain;

@@ -8,23 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@class ModularUnit;
-
 typedef enum {
 	ModularConnectionTypeInput,
 	ModularConnectionTypeOutput,
 	ModularConnectionTypeNone
 } ModularConnectionType;
 
+typedef enum {
+	ModularConnectionDataTypeAudioSample
+} ModularConnectionDataType;
+
 @interface ModularConnection : NSObject {
+	@protected
 	ModularConnectionType _type;
+	ModularConnectionDataType _dataType;
 	NSString* _name;
-	NSString* description;
 }
 - (id)initWithType:(ModularConnectionType)cType andName:(NSString*)cName;
 - (ModularConnectionType)type;
 - (NSString*)name;
-@property (readwrite,retain) NSString* description;
-@property (readwrite,retain) ModularUnit* inputUnit;
-@property (readwrite,retain) ModularUnit* outputUnit;
+- (BOOL)connect:(ModularConnection*)connection;
+- (BOOL)disconnect;
 @end

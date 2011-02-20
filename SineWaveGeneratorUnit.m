@@ -12,7 +12,6 @@
 #import "CommonAudioOps.h"
 
 @implementation SineWaveGeneratorUnit
-@synthesize frequency,amplitude,phaseDifference;
 
 - (id)init {
 	NSLog(@"%s",__FUNCTION__);
@@ -27,15 +26,15 @@
 - (BOOL)initializeConnections {
 	NSLog(@"%s",__FUNCTION__);
 	[super initializeConnections];
-	self.input = nil;
-	self.frequency = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"frequency"];
-	self.amplitude = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"amplitude"];
-	self.phaseDifference = [[ModularConnection alloc] initWithType:ModularConnectionTypeInput andName:@"phase difference"];
+	input = nil;
+	frequency = [[ModularInput alloc] initWithLocalUnit:self andName:@"frequency"];
+	amplitude = [[ModularInput alloc] initWithLocalUnit:self andName:@"amplitude"];
+	phaseDifference = [[ModularInput alloc] initWithLocalUnit:self andName:@"phase diff"];
 	return YES;
 }
 
 - (NSArray*)connections {
-	return [NSArray arrayWithObjects:self.output,self.frequency,self.amplitude,self.phaseDifference,nil];
+	return [NSArray arrayWithObjects:output,frequency,amplitude,phaseDifference,nil];
 }
 
 #pragma mark -
@@ -52,6 +51,13 @@
 	}
 	
 	return YES;
+}
+
+#pragma mark -
+#pragma mark Details
+
+- (NSString*)description {
+	return @"SineWaveGeneratorUnit";
 }
 
 @end

@@ -50,16 +50,18 @@
 	CGContextSetLineWidth(context, 2);
 	[color setStroke];
 	[color setFill];
+	// outer circle
 	CGContextAddArc(context, point.x, point.y, radius, 0, 2*M_PI, YES);
 	CGContextStrokePath(context);
+	
 	CGContextMoveToPoint(context, point.x, point.y+xWidth);
-	CGContextAddArc(context, point.x, point.y/2, radius-2, M_PI/4+outerRadianOffset, 3*M_PI/4-outerRadianOffset, NO);
-	CGContextMoveToPoint(context, point.x-xWidth, point.y/2);
-	CGContextAddArc(context, point.x, point.y/2, radius-2, 3*M_PI/4+outerRadianOffset, 5*M_PI/4-outerRadianOffset, NO);
-	CGContextMoveToPoint(context, point.x, point.y/2-xWidth);
-	CGContextAddArc(context, point.x, point.y/2, radius-2, 5*M_PI/4+outerRadianOffset, 7*M_PI/4-outerRadianOffset, NO);
-	CGContextMoveToPoint(context, point.x+xWidth, point.y/2);
-	CGContextAddArc(context, point.x, point.y/2, radius-2, 7*M_PI/4+outerRadianOffset, M_PI/4-outerRadianOffset, NO);
+	CGContextAddArc(context, point.x, point.y, radius-2, M_PI/4+outerRadianOffset, 3*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x-xWidth, point.y);
+	CGContextAddArc(context, point.x, point.y, radius-2, 3*M_PI/4+outerRadianOffset, 5*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x, point.y-xWidth);
+	CGContextAddArc(context, point.x, point.y, radius-2, 5*M_PI/4+outerRadianOffset, 7*M_PI/4-outerRadianOffset, NO);
+	CGContextMoveToPoint(context, point.x+xWidth, point.y);
+	CGContextAddArc(context, point.x, point.y, radius-2, 7*M_PI/4+outerRadianOffset, M_PI/4-outerRadianOffset, NO);
 	CGContextFillPath(context);
 }
 

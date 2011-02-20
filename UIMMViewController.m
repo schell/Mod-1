@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIMMViewController.h"
 #import "UIViewController+Layout.h"
+#import "UIMMConnectionsController.h"
 
 #define BORDER 2
 
@@ -121,7 +122,20 @@ static CGFloat thirdOfPortraitWidth = 0;
 		highlight.alpha = 0.1;
 		_windowBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, thirdOfPortraitWidth, 50)];
 		_windowBarView.backgroundColor = [UIColor colorWithPatternImage:windowBarBackground];
+		
+		_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+		_label.backgroundColor = [UIColor clearColor];
+		_label.text = [self stringForLabelTitle];
+		_label.font = [UIFont boldSystemFontOfSize:16];
+		_label.textColor = [UIColor	colorWithRed:0.7 green:0.72 blue:0.7 alpha:0.9];
+		_label.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+		_label.shadowOffset = CGSizeMake(0, -1.2);
+		CGSize labelSize = [_label.text sizeWithFont:_label.font];
+		_label.frame = CGRectMake(0, 0, labelSize.width, labelSize.height);
+		_label.center = _windowBarView.center;
+		
 		[_windowBarView addSubview:highlight];
+		[_windowBarView addSubview:_label];
 	}
 	_windowBarView.frame = CGRectMake(0, 0, thirdOfPortraitWidth, 50);
 	[_backgroundView addSubview:_windowBarView];
@@ -169,6 +183,10 @@ static CGFloat thirdOfPortraitWidth = 0;
 	return [UIImage imageNamed:@"icon.png"];
 }
 
+- (NSString*)stringForLabelTitle {
+	return @"Mod Mash Unit";
+}
+
 - (void)setShadowForState:(UIViewState)state {
 	switch (state) {
 		case UIViewStateAtRest:
@@ -204,6 +222,7 @@ static CGFloat thirdOfPortraitWidth = 0;
 		_dragging = YES;
 		_draggingOffset = loc;
 		[self setShadowForState:UIViewStateDragging];
+		[self.view.superview bringSubviewToFront:self.view];
 	}
 }
 
@@ -214,16 +233,23 @@ static CGFloat thirdOfPortraitWidth = 0;
 		CGRect viewFrame = self.view.frame;
 		viewFrame.origin = CGPointMake(loc.x - _draggingOffset.x, loc.y - _draggingOffset.y);
 		self.view.frame = viewFrame;
+		// make an update for wires
+		[UIMMConnectionsController sharedWireDisplayView].wires = [UIMMConnectionsController wiredSocketPairs];
+		[[UIMMConnectionsController sharedWireDisplayView] setNeedsDisplay];
 	}
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (self.view.frame.origin.x < 0 || self.view.frame.origin.y < 0) {
-		CGPoint point = {0};
-		point.x = self.view.frame.origin.x < 0 ? self.view.frame.size.width/2 : self.view.center.x;
-		point.y = self.view.frame.origin.y < 0 ? self.view.frame.size.height/2 : self.view.center.y;
+	BOOL needsToMove = NO;
+	CGPoint pointToMoveTo = self.view.center;
+	if (pointToMoveTo.x - self.view.frame.size.width/2 < 0 || pointToMoveTo.y - self.view.frame.size.height/2 < 0) {
+		needsToMove = YES;
+		pointToMoveTo.x = self.view.frame.origin.x < 0 ? self.view.frame.size.width/2 : self.view.center.x;
+		pointToMoveTo.y = self.view.frame.origin.y < 0 ? self.view.frame.size.height/2 : self.view.center.y;
+	}
+	if (needsToMove) {
 		[UIView animateWithDuration:0.3 animations:^{
-			self.view.center = point;
+			self.view.center = pointToMoveTo;
 		}];
 	}
 	_dragging = NO;

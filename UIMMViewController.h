@@ -19,6 +19,7 @@ typedef enum {
 	UIView* _windowBarView;
 	UIView* _contentShadowView;
 	UIView* _contentView;
+	UILabel* _label;
 	BOOL _dragging;
 	CGPoint _draggingOffset;
 	BOOL _viewCreated;
@@ -28,9 +29,11 @@ typedef enum {
 - (CGRect)frameForDefault;
 - (CGRect)frameForContentView;
 - (CGRect)frameForContentShadowView;
-- (void)createView;
 - (UIImage*)icon;
-- (void)setShadowForState:(UIViewState)state;
 - (UIView*)windowBar;
 - (UIView*)viewForContentView;
+- (NSString*)stringForLabelTitle;
+- (void)createView;
+- (void)setShadowForState:(UIViewState)state;
+
 @end
